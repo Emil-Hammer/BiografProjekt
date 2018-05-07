@@ -3,10 +3,105 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BiografProjekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="BiografProjekt"
+        Background="DarkRed"> <!-- Baggrundsfarve -->
+
+    <!-- Navigationsbar sættes til at være i toppen -->
+    <Grid VerticalAlignment="Top" >
+        <!-- Ekstra grid for at kunne fylde hele den horizontale linje ud med sort -->
+        <Grid Background="Black">
+            <!-- Viewbox gør at programmet og navbaren kan scale op og ned -->
+            <Viewbox Stretch="Uniform" MaxHeight="60"> <!-- MaxHeight holder teksten og navigationsbaren så den ikke bliver for stor -->
+            <Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Se film, oprettes, får en border og får et isMouseOver effekt der skifter baggrund til anden farve -->
+                <Border Grid.Column="0" BorderBrush="Gold" 
+                    BorderThickness="0.3,0,0.3,0.3" >
+                    <Border.Style>
+                                <Style>
+                                    <Setter Property="Border.Background" Value="Black"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Border.IsMouseOver" Value="True">
+                                            <Setter Property="Border.Background" Value="DarkRed" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                    <StackPanel Grid.Column="0" Margin="1.5,0,1.5,0">
+                        <TextBlock Foreground="Gold">Se Film</TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <!-- Program, oprettes, får en border og får et isMouseOver effekt der skifter baggrund til anden farve -->    
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Gold" 
+                    BorderThickness="0.3,0,0.3,0.3">
+                    <Border.Style>
+                                <Style>
+                                    <Setter Property="Border.Background" Value="Black"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Border.IsMouseOver" Value="True">
+                                            <Setter Property="Border.Background" Value="DarkRed" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                    <StackPanel Margin="1.5,0,1.5,0">
+                                <TextBlock Foreground="Gold">Program</TextBlock>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Om os, oprettes, får en border og får et isMouseOver effekt der skifter baggrund til anden farve --> 
+                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Gold" 
+                    BorderThickness="0.3,0,0.3,0.3">
+                    <Border.Style>
+                        <Style>
+                            <Setter Property="Border.Background" Value="Black"/>
+                                <Style.Triggers>
+                                    <Trigger Property="Border.IsMouseOver" Value="True">
+                                        <Setter Property="Border.Background" Value="DarkRed" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    <StackPanel Margin="1.5,0,1.5,0">
+                        <TextBlock Foreground="Gold">Om os</TextBlock>
+                    </StackPanel>
+                    </Border>
+
+                <!-- Kontakt, oprettes, får en border og får et isMouseOver effekt der skifter baggrund til anden farve -->
+                        <Border Grid.Row="0" Grid.Column="3" BorderBrush="Gold" 
+                    BorderThickness="0.3,0,0.3,0.3">
+                            <Border.Style>
+                                <Style>
+                                    <Setter Property="Border.Background" Value="Black"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="Border.IsMouseOver" Value="True">
+                                            <Setter Property="Border.Background" Value="DarkRed" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel Margin="1.5,0,1.5,0">
+                                <TextBlock Foreground="Gold">Kontakt</TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                <!-- Færdig med navbar -->
+            </Grid>
+        </Viewbox>
+        </Grid>
     </Grid>
 </Window>
+
