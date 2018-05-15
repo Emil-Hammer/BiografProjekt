@@ -41,7 +41,4 @@ namespace BiografProjekt
     }
         #endregion
     }
-
-    //ekstra tilllisdjlfijdlsfj
 }
-
