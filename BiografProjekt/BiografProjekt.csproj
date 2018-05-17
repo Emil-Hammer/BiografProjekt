@@ -55,10 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DomainModel.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieCatalog.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenCatalog.cs" />
+    <Compile Include="Show.cs" />
+    <Compile Include="ShowCatalog.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

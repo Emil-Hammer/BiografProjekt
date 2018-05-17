@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BiografProjekt
 {
-    class MovieCatalog
+    public class MovieCatalog
     {
         private static int _keyCount = 1;
         private Dictionary<int, Movie> _movies;
@@ -28,5 +28,12 @@ namespace BiografProjekt
         {
             _movies.Remove(key);
         }
+
+        public Movie GetMovie(int key)
+        {
+            _movies.TryGetValue(key, out Movie movie);
+            return movie;
+        }
+
     }
 }

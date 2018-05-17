@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 
 namespace BiografProjekt
 {
-    class ScreenCatalog
+    public class ScreenCatalog
     {
         private static int _keyCount = 1;
         private Dictionary<int, Screen> _screens;
@@ -27,6 +25,12 @@ namespace BiografProjekt
         public void DeleteMovie(int key)
         {
             _screens.Remove(key);
+        }
+
+        public Screen GetScreen(int key)
+        {
+            _screens.TryGetValue(key, out Screen screen);
+            return screen;
         }
     }
 }
