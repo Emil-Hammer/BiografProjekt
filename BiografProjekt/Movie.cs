@@ -1,46 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BiografProjekt
 {
     public class Movie
     {
         #region Instance Field
+
+        private int _key;
         private string _title;
-        private int _length;
-        private string _rating;
+        private TimeSpan _length;
+        private int _agelimit;
         private string _director;
         private string _mainActors;
-        private int _price;
         #endregion
         #region Constructor
-        public Movie (string title, int length, string rating, string director, string mainActors, int price)
+        public Movie (string title, TimeSpan length, int rating, string director, string mainActors)
         {
             _title = title;
             _length = length;
-            _rating = rating;
+            _agelimit = rating;
             _director = director;
             _mainActors = mainActors;
-            _price = price;
         }
         #endregion
         #region Property
+
+        public int Key
+        {
+            get { return _key;  }
+            set { _key = value; }
+        }
         public string Title
         {
             get { return _title; }
         }
 
-        public int Length
+        public TimeSpan Length
         {
             get { return _length; }
         }
 
-        public string Rating
+        public int Rating
         {
-            get { return _rating; }
+            get { return _agelimit; }
         }
 
         public string Director
@@ -51,11 +53,6 @@ namespace BiografProjekt
         public string mainActors
         {
             get { return _mainActors; }
-        }
-
-        public int Price
-        {
-            get { return _price; }
         }
         #endregion
     }
