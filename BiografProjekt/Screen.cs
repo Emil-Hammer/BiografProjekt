@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BiografProjekt
+﻿namespace BiografProjekt
 {
     public class Screen
     {
         #region Instance Fields
-        private int _screenNumber;
-        //private string _movie;
-        private int _date;
-        private int _time;
+
+        private int _keys;
+        private int _rows;
+        private int _columns;
+
         #endregion
 
         #region Constructor
-        public Screen(int screenNumber, int date, int time)
+
+        public Screen(int rows, int columns)
         {
-        _screenNumber = screenNumber;
-        _date = date;
-        _time = time;
+            _rows = rows;
+            _columns = columns;
         }
+
         #endregion
 
         #region Properties
-        public int ScreenNumber
-    {
-        get { return _screenNumber; }
-    }
 
-    public int Date
-    {
-        get { return _date; }
-    }
-    public int Time
-    {
-        get { return _time; }
-    }
+        public int ScreenKey
+        {
+            get => _keys;
+            set => _keys = value;
+        }
+
+        public int Rows => _rows;
+
+        public int Columns => _columns;
+
         #endregion
     }
 }
