@@ -7,7 +7,9 @@ namespace BiografProjekt
     public class MovieCatalog
     {
         private static int _keyCount = 1;
-        private Dictionary<int, Movie> _movies;
+        private Dictionary<int, Movie> _movies = new Dictionary<int, Movie>();
+
+        
 
         public Dictionary<int, Movie> Movies
         {
@@ -16,13 +18,13 @@ namespace BiografProjekt
 
         public void AddMovie(string title, TimeSpan length, int agelimit, string director, string mainActors)
         {
+            MovieCatalog._keyCount++;
             CreateMovie(new Movie(title, length, agelimit, director, mainActors));
         }
 
         private void CreateMovie(Movie s)
         {
-            s.Key = _keyCount++;
-            _movies.Add(s.Key, s);
+            _movies.Add(_keyCount, s);
         }
         public void DeleteMovie(int key)
         {
@@ -33,6 +35,23 @@ namespace BiografProjekt
         {
             _movies.TryGetValue(key, out Movie movie);
             return movie;
+        }
+
+        public string GetAllMovie
+        {
+            get { return ListOfMovies(); }
+        }
+
+        public string ListOfMovies()
+        {
+            List<string> nameList = new List<string>();
+            foreach (var v in _movies)
+            {
+                nameList.Add(v.Value.Title);
+            }
+
+            string combinedString = string.Join(", ", nameList);
+            return combinedString;
         }
 
     }
