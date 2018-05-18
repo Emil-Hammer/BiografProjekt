@@ -6,7 +6,7 @@ namespace BiografProjekt
     public class ShowCatalog
     {
         private static int _keyCount = 1;
-        private Dictionary<int, Show> _shows;
+        private Dictionary<int, Show> _shows = new Dictionary<int, Show>();
 
         public Dictionary<int, Show> Shows
         {
@@ -32,6 +32,23 @@ namespace BiografProjekt
         {
             _shows.TryGetValue(key, out Show show);
             return show;
+        }
+        public string GetAllShows
+        {
+            get { return ListOfShows(); }
+        }
+
+        public string ListOfShows()
+        {
+            List<DateTime> nameList = new List<DateTime>();
+            foreach (var v in _shows)
+            {
+                nameList.Add(v.Value.DateTime);
+            }
+
+            string combinedString = string.Join(", ", nameList);
+            combinedString = "Tidspunkt for shows: " + combinedString;
+            return combinedString;
         }
     }
 }

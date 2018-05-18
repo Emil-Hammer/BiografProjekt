@@ -5,7 +5,7 @@ namespace BiografProjekt
     public class ScreenCatalog
     {
         private static int _keyCount = 1;
-        private Dictionary<int, Screen> _screens;
+        private Dictionary<int, Screen> _screens = new Dictionary<int, Screen>();
 
         public Dictionary<int, Screen> Screens
         {
@@ -31,6 +31,24 @@ namespace BiografProjekt
         {
             _screens.TryGetValue(key, out Screen screen);
             return screen;
+        }
+
+        public string GetAllScreens
+        {
+            get { return ListOfScreens(); }
+        }
+
+        public string ListOfScreens()
+        {
+            List<int> nameList = new List<int>();
+            foreach (var v in _screens)
+            {
+                nameList.Add(v.Value.Columns);
+            }
+
+            string combinedString = string.Join(", ", nameList);
+            combinedString = "Columns: " + combinedString;
+            return combinedString;
         }
     }
 }

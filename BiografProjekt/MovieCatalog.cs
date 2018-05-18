@@ -51,6 +51,7 @@ namespace BiografProjekt
             }
 
             string combinedString = string.Join(", ", nameList);
+            combinedString = "Film: " + combinedString;
             return combinedString;
         }
 
