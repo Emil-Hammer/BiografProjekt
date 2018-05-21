@@ -6,12 +6,8 @@ namespace BiografProjekt
     public class ShowCatalog
     {
         private static int _keyCount = 1;
-        private Dictionary<int, Show> _shows = new Dictionary<int, Show>();
 
-        public Dictionary<int, Show> Shows
-        {
-            get { return _shows; }
-        }
+        public Dictionary<int, Show> Shows { get; } = new Dictionary<int, Show>();
 
         public void AddShow(int movieKey, int screenKey, DateTime dateTime)
         {
@@ -21,16 +17,16 @@ namespace BiografProjekt
         private void CreateShow(Show s)
         {
             s.ShowKey = _keyCount++;
-            _shows.Add(s.ShowKey, s);
+            Shows.Add(s.ShowKey, s);
         }
         public void DeleteShow(int key)
         {
-            _shows.Remove(key);
+            Shows.Remove(key);
         }
 
         public Show GetShows(int key)
         {
-            _shows.TryGetValue(key, out Show show);
+            Shows.TryGetValue(key, out Show show);
             return show;
         }
         public string GetAllShows
@@ -41,13 +37,12 @@ namespace BiografProjekt
         public string ListOfShows()
         {
             List<DateTime> nameList = new List<DateTime>();
-            foreach (var v in _shows)
+            foreach (var v in Shows)
             {
                 nameList.Add(v.Value.DateTime);
             }
 
             string combinedString = string.Join(", ", nameList);
-            combinedString = "Tidspunkt for shows: " + combinedString;
             return combinedString;
         }
     }

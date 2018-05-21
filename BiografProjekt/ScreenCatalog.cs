@@ -5,12 +5,8 @@ namespace BiografProjekt
     public class ScreenCatalog
     {
         private static int _keyCount = 1;
-        private Dictionary<int, Screen> _screens = new Dictionary<int, Screen>();
 
-        public Dictionary<int, Screen> Screens
-        {
-            get { return _screens; }
-        }
+        public Dictionary<int, Screen> Screens { get; } = new Dictionary<int, Screen>();
 
         public void AddScreen(int rows, int columns)
         {
@@ -20,16 +16,16 @@ namespace BiografProjekt
         private void CreateScreen(Screen s)
         {
             s.ScreenKey = _keyCount++;
-            _screens.Add(s.ScreenKey, s);
+            Screens.Add(s.ScreenKey, s);
         }
         public void DeleteMovie(int key)
         {
-            _screens.Remove(key);
+            Screens.Remove(key);
         }
 
         public Screen GetScreen(int key)
         {
-            _screens.TryGetValue(key, out Screen screen);
+            Screens.TryGetValue(key, out Screen screen);
             return screen;
         }
 
@@ -41,13 +37,12 @@ namespace BiografProjekt
         public string ListOfScreens()
         {
             List<int> nameList = new List<int>();
-            foreach (var v in _screens)
+            foreach (var v in Screens)
             {
                 nameList.Add(v.Value.Columns);
             }
 
             string combinedString = string.Join(", ", nameList);
-            combinedString = "Columns: " + combinedString;
             return combinedString;
         }
     }

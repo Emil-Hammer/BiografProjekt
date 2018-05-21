@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
 
 namespace BiografProjekt
 {
     public class MovieCatalog
     {
-        private static int _keyCount = 0;
-        private Dictionary<int, Movie> _movies = new Dictionary<int, Movie>();
+        private static int _keyCount;
 
-        
-
-        public Dictionary<int, Movie> Movies
-        {
-            get { return _movies; }
-        }
+        public Dictionary<int, Movie> Movies { get; } = new Dictionary<int, Movie>();
 
         public void AddMovie(string title, TimeSpan length, int agelimit, string director, string mainActors)
         {
@@ -26,28 +18,43 @@ namespace BiografProjekt
 
         private void CreateMovie(Movie s)
         {
-            _movies.Add(_keyCount, s);
-            
+            Movies.Add(_keyCount, s);
         }
+
         public void DeleteMovie(int key)
         {
-            _movies.Remove(key);
+            Movies.Remove(key);
         }
 
         public Movie GetMovie(int key)
         {
-            _movies.TryGetValue(key, out Movie movie);
+            Movies.TryGetValue(key, out Movie movie);
             return movie;
         }
 
-        public string GetAllMovie
+        public string GetAllMovie => ListOfMovies();
+
+        public int GetRating(int key)
         {
-            get { return ListOfMovies(); }
+            Movies.TryGetValue(key, out Movie movie);
+            if (movie == null)
+            {
+                throw new NullReferenceException("The key didn't match a movie object.");
+            }
+            else
+            {
+                return movie.Rating;
+            }
+        }
+
+        public List<string> GetAllTitle
+        {
+            get { return ListOfTitles(); }
         }
 
         public TimeSpan RunningTime(int key)
         {
-            _movies.TryGetValue(key, out Movie movie);
+            Movies.TryGetValue(key, out Movie movie);
             if (movie == null)
             {
                 throw new NullReferenceException("The key didn't match a movie object.");
@@ -61,15 +68,24 @@ namespace BiografProjekt
         public string ListOfMovies()
         {
             List<string> nameList = new List<string>();
-            foreach (var v in _movies)
+            foreach (var v in Movies)
             {
                 nameList.Add(v.Value.Title);
             }
 
             string combinedString = string.Join(", ", nameList);
-            combinedString = "Film: " + combinedString;
             return combinedString;
         }
 
+        public List<string> ListOfTitles()
+        {
+            List<string> nameList = new List<string>();
+            foreach (var v in Movies)
+            {
+                nameList.Add(v.Value.Title);
+            }
+
+            return nameList;
+        }
     }
 }

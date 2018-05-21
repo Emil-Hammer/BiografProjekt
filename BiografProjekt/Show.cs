@@ -5,33 +5,26 @@ namespace BiografProjekt
     public class Show
     {
         #region instance fields
-        private int _keys;
-        private Screen _screen;
-        private Movie _movie;
-        private DateTime _dateTime;
+
         #endregion
 
         #region Constructor
         public Show(int movieKey, int screenKey, DateTime dateTime)
         {
-            _dateTime = dateTime;
-            _movie = DomainModel.Instance.Movies.GetMovie(movieKey);
-            _screen = DomainModel.Instance.Screens.GetScreen(screenKey);
+            DateTime = dateTime;
+            getMovie = DomainModel.Instance.Movies.GetMovie(movieKey);
+            getScreen = DomainModel.Instance.Screens.GetScreen(screenKey);
         }
         #endregion
 
         #region Properties
-        public int ShowKey
-        {
-            get => _keys;
-            set => _keys = value;
-        }
+        public int ShowKey { get; set; }
 
-        public Screen getScreen => _screen;
+        public Screen getScreen { get; }
 
-        public Movie getMovie => _movie;
+        public Movie getMovie { get; }
 
-        public DateTime DateTime => _dateTime;
+        public DateTime DateTime { get; }
 
         #endregion
     }

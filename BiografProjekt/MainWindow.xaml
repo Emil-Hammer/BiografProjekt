@@ -6,19 +6,13 @@
         xmlns:biografProjekt="clr-namespace:BiografProjekt"
         mc:Ignorable="d"
         Title="BiografProjekt">
-    <!-- Baggrundsfarve -->
-
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Source={x:Static biografProjekt:DomainModel.Instance} }"></ListBox>
-        <TextBox Grid.Column="0" Text="{Binding Source={x:Static biografProjekt:DomainModel.Instance}, Path=Movies.GetAllMovie, Mode=OneTime}"></TextBox>
-        <TextBox Grid.Column="1" Text="{Binding Source={x:Static biografProjekt:DomainModel.Instance}, Path=Screens.GetAllScreens, Mode=OneTime}"></TextBox>
-        <TextBox Grid.Column="2" Text="{Binding Source={x:Static biografProjekt:DomainModel.Instance}, Path=Shows.GetAllShows, Mode=OneTime}"></TextBox>
-        <TextBox Grid.Column="3" Text="{Binding Source={x:Static biografProjekt:DomainModel.Instance}, Path=Movies.RunningTime, Mode=OneTime}"></TextBox>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Height="35">
+            <Button Content="Page 1" MinWidth="100" Click="BtnP1_OnClick"></Button>
+            <Button Content="Page 2" MinWidth="100" Click="BtnP2_OnClick"></Button>
+        </StackPanel>
+    
+        <Frame x:Name="Main" Source="MoviePage.xaml" Margin="0,35,0,0" NavigationUIVisibility="Hidden">
+        </Frame>
     </Grid>
 </Window>

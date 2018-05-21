@@ -6,55 +6,32 @@ namespace BiografProjekt
     {
         #region Instance Field
 
-        private int _key;
-        private string _title;
-        private TimeSpan _length;
-        private int _agelimit;
-        private string _director;
-        private string _mainActors;
         #endregion
         #region Constructor
         public Movie (int key, string title, TimeSpan length, int rating, string director, string mainActors)
         {
-            _key = key;
-            _title = title;
-            _length = length;
-            _agelimit = rating;
-            _director = director;
-            _mainActors = mainActors;
+            Key = key;
+            Title = title;
+            Length = length;
+            Rating = rating;
+            Director = director;
+            this.MainActors = mainActors;
         }
         #endregion
         #region Property
 
-        public int Key
-        {
-            get { return _key;  }
-            set { _key = value; }
-        }
-        public string Title
-        {
-            get { return _title; }
-        }
+        public int Key { get; set; }
 
-        public TimeSpan Length
-        {
-            get { return _length; }
-        }
+        public string Title { get; }
 
-        public int Rating
-        {
-            get { return _agelimit; }
-        }
+        public TimeSpan Length { get; }
 
-        public string Director
-        {
-            get { return _director; }
-        }
+        public int Rating { get; }
 
-        public string mainActors
-        {
-            get { return _mainActors; }
-        }
+        public string Director { get; }
+
+        public string MainActors { get; }
+
         #endregion
     }
 }

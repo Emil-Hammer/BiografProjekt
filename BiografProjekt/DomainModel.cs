@@ -2,9 +2,6 @@
 {
     public class DomainModel
     {
-        private MovieCatalog _movieCatalog;
-        private ScreenCatalog _screenCatalog;
-        private ShowCatalog _showCatalog;
         private static DomainModel _instance;
 
         public static DomainModel Instance
@@ -18,15 +15,16 @@
 
         private DomainModel()
         {
-            _movieCatalog = new MovieCatalog();
-            _screenCatalog = new ScreenCatalog();
-            _showCatalog = new ShowCatalog();
+            Movies = new MovieCatalog();
+            Screens = new ScreenCatalog();
+            Shows = new ShowCatalog();
         }
 
         #region Properties
-        public MovieCatalog Movies { get { return _movieCatalog; } }
-        public ScreenCatalog Screens { get { return _screenCatalog; } }
-        public ShowCatalog Shows { get { return _showCatalog; } }
+        public MovieCatalog Movies { get; }
+        public ScreenCatalog Screens { get; }
+        public ShowCatalog Shows { get; }
+
         #endregion
     }
 }
