@@ -14,8 +14,9 @@ namespace BiografProjekt
         private string _mainActors;
         #endregion
         #region Constructor
-        public Movie (string title, TimeSpan length, int rating, string director, string mainActors)
+        public Movie (int key, string title, TimeSpan length, int rating, string director, string mainActors)
         {
+            _key = key;
             _title = title;
             _length = length;
             _agelimit = rating;

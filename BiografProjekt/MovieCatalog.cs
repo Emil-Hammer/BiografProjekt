@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace BiografProjekt
 {
     public class MovieCatalog
     {
-        private static int _keyCount = 1;
+        private static int _keyCount = 0;
         private Dictionary<int, Movie> _movies = new Dictionary<int, Movie>();
 
         
@@ -19,12 +20,14 @@ namespace BiografProjekt
         public void AddMovie(string title, TimeSpan length, int agelimit, string director, string mainActors)
         {
             _keyCount++;
-            CreateMovie(new Movie(title, length, agelimit, director, mainActors));
+            int key = _keyCount;
+            CreateMovie(new Movie(key, title, length, agelimit, director, mainActors));
         }
 
         private void CreateMovie(Movie s)
         {
             _movies.Add(_keyCount, s);
+            
         }
         public void DeleteMovie(int key)
         {
@@ -44,7 +47,15 @@ namespace BiografProjekt
 
         public TimeSpan RunningTime(int key)
         {
-            _movies.TryGetValue(key, out );
+            _movies.TryGetValue(key, out Movie movie);
+            if (movie == null)
+            {
+                throw new NullReferenceException("The key didn't match a movie object.");
+            }
+            else
+            {
+                return movie.Length;
+            }
         }
 
         public string ListOfMovies()
