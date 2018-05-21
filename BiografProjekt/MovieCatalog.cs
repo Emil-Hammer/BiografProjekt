@@ -18,7 +18,7 @@ namespace BiografProjekt
 
         public void AddMovie(string title, TimeSpan length, int agelimit, string director, string mainActors)
         {
-            MovieCatalog._keyCount++;
+            _keyCount++;
             CreateMovie(new Movie(title, length, agelimit, director, mainActors));
         }
 
@@ -40,6 +40,11 @@ namespace BiografProjekt
         public string GetAllMovie
         {
             get { return ListOfMovies(); }
+        }
+
+        public TimeSpan RunningTime(int key)
+        {
+            _movies.TryGetValue(key, out );
         }
 
         public string ListOfMovies()

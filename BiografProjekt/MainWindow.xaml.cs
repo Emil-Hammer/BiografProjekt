@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Windows;
 
 namespace BiografProjekt
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -19,6 +18,7 @@ namespace BiografProjekt
             DomainModel.Instance.Screens.AddScreen(6, 8);
             DomainModel.Instance.Shows.AddShow(2,1,new DateTime(2018,3,10,10,15,0));
             DomainModel.Instance.Shows.AddShow(3, 2, new DateTime(2018, 3, 10, 12, 15, 0));
+            DomainModel.Instance.Movies.GetMovie(1);
             InitializeComponent();
 
         }
