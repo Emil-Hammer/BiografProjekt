@@ -10,10 +10,10 @@ namespace BiografProjekt
     {
         public MainWindow()
         {
-            DomainModel.Instance.Movies.AddMovie("Deadpool 2", TimeSpan.FromMinutes(134), 5, "Leonardo da Vinci", "Leonardo diCaprio");
-            DomainModel.Instance.Movies.AddMovie("Avengers: Infinity War", TimeSpan.FromMinutes(144), 5, "Leonardo da Vinci", "Leonardo diCaprio");
-            DomainModel.Instance.Movies.AddMovie("Utøya", TimeSpan.FromMinutes(112), 5, "Leonardo da Vinci", "Leonardo diCaprio");
-            DomainModel.Instance.Movies.AddMovie("Solo: A Star Wars Story", TimeSpan.FromMinutes(155), 5, "Leonardo da Vinci", "Leonardo diCaprio");
+            DomainModel.Instance.Movies.AddMovie("Deadpool 2", 134, 5, "Leonardo da Vinci", "Leonardo diCaprio");
+            DomainModel.Instance.Movies.AddMovie("Avengers: Infinity War", 144, 5, "Leonardo da Vinci", "Leonardo diCaprio");
+            DomainModel.Instance.Movies.AddMovie("Utøya", 112, 5, "Leonardo da Vinci", "Leonardo diCaprio");
+            DomainModel.Instance.Movies.AddMovie("Solo: A Star Wars Story", 155, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Screens.AddScreen(2,2);
             DomainModel.Instance.Screens.AddScreen(4, 1);
             DomainModel.Instance.Screens.AddScreen(6, 8);
@@ -27,12 +27,12 @@ namespace BiografProjekt
 
         private void BtnP1_OnClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new ShowPage();
+            Main.Content = new MovieView();
         }
 
         private void BtnP2_OnClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new MoviePage();
+            Main.Content = new ShowPage();
         }
     }
 }

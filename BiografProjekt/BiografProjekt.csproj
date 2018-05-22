@@ -61,9 +61,10 @@
     <Compile Include="DomainModel.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieCatalog.cs" />
-    <Compile Include="MoviePage.xaml.cs">
-      <DependentUpon>MoviePage.xaml</DependentUpon>
+    <Compile Include="MovieView.xaml.cs">
+      <DependentUpon>MovieView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MovieViewModel.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenCatalog.cs" />
     <Compile Include="Show.cs" />
@@ -83,7 +84,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MoviePage.xaml">
+    <Page Include="MovieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

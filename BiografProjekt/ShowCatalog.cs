@@ -5,23 +5,28 @@ namespace BiografProjekt
 {
     public class ShowCatalog
     {
-        private static int _keyCount = 1;
+        private static int _keyCount = 0;
 
         public Dictionary<int, Show> Shows { get; } = new Dictionary<int, Show>();
 
         public void AddShow(int movieKey, int screenKey, DateTime dateTime)
         {
-            CreateShow(new Show(movieKey, screenKey, dateTime));
+            _keyCount++;
+            CreateShow(new Show(_keyCount,movieKey,screenKey,dateTime, LengthOfMovie(movieKey)));
         }
 
         private void CreateShow(Show s)
         {
-            s.ShowKey = _keyCount++;
-            Shows.Add(s.ShowKey, s);
+            Shows.Add(_keyCount, s);
         }
         public void DeleteShow(int key)
         {
             Shows.Remove(key);
+        }
+
+        public int LengthOfMovie(int movieKey)
+        {
+            return DomainModel.Instance.Movies.RunningTime(movieKey);
         }
 
         public Show GetShows(int key)
@@ -39,7 +44,7 @@ namespace BiografProjekt
             List<DateTime> nameList = new List<DateTime>();
             foreach (var v in Shows)
             {
-                nameList.Add(v.Value.DateTime);
+                nameList.Add(v.Value.DateForShow);
             }
 
             string combinedString = string.Join(", ", nameList);

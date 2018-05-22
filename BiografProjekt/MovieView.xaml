@@ -1,0 +1,61 @@
+﻿<Page x:Class="BiografProjekt.MovieView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:biografProjekt="clr-namespace:BiografProjekt"
+      mc:Ignorable="d">
+
+    <Page.DataContext>
+        <biografProjekt:MovieViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Row="0" Grid.Column="0"
+                  ItemsSource="{Binding MovieCollection}"
+                  SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
+        </ListView>
+
+        <Grid Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.08*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Age limit:"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Length:"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Showings:"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Director:"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedMovie.Title}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedMovie.Rating}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedMovie.Length}"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedMovie.Director}"/>
+
+
+                <!--<ListView Grid.Row="3" Grid.Column="1"
+                          ItemsSource="{Binding ShowCollection}"
+                          SelectedItem="{Binding SelectedShow, Mode=TwoWay}">
+                </ListView>-->
+
+                <ListBox Grid.Row="3" Grid.Column="1"
+                         ItemsSource="{Binding ShowCollection}"
+                         SelectedItem="{Binding SelectedShow, Mode=TwoWay}"></ListBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -9,11 +9,10 @@ namespace BiografProjekt
 
         public Dictionary<int, Movie> Movies { get; } = new Dictionary<int, Movie>();
 
-        public void AddMovie(string title, TimeSpan length, int agelimit, string director, string mainActors)
+        public void AddMovie(string title, int length, int agelimit, string director, string mainActors)
         {
             _keyCount++;
-            int key = _keyCount;
-            CreateMovie(new Movie(key, title, length, agelimit, director, mainActors));
+            CreateMovie(new Movie(_keyCount, title, length, agelimit, director, mainActors));
         }
 
         private void CreateMovie(Movie s)
@@ -52,7 +51,7 @@ namespace BiografProjekt
             get { return ListOfTitles(); }
         }
 
-        public TimeSpan RunningTime(int key)
+        public int RunningTime(int key)
         {
             Movies.TryGetValue(key, out Movie movie);
             if (movie == null)
