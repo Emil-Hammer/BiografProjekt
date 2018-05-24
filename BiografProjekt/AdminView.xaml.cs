@@ -24,5 +24,15 @@ namespace BiografProjekt
         {
             InitializeComponent();
         }
+
+        private void ButtonBase_OnClick__(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
