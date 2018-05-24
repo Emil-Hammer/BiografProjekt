@@ -31,6 +31,11 @@
         public int SliderChild { get; set; }
         public int SliderSenior { get; set; }
         public int SliderFriends { get; set; }
+
+        public int TicketAmount
+        {
+            get { return SliderAdult + SliderChild + SliderFriends + SliderSenior; }
+        }
         #endregion
     }
 }

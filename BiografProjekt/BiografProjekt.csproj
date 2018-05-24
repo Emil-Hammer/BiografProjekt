@@ -70,6 +70,8 @@
     <Compile Include="MovieViewModel.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenCatalog.cs" />
+    <Compile Include="Seat.cs" />
+    <Compile Include="SeatCatalog.cs" />
     <Compile Include="SeatView.xaml.cs">
       <DependentUpon>SeatView.xaml</DependentUpon>
     </Compile>

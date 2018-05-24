@@ -20,9 +20,38 @@ namespace BiografProjekt
     /// </summary>
     public partial class SeatView : Page
     {
+        private int _tickets = DomainModel.Instance.TicketAmount;
         public SeatView()
         {
             InitializeComponent();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            if (button.Background.Equals(Brushes.LightBlue))
+            {
+                if (_tickets != 0)
+                {
+                    _tickets--;
+                    button.Background = Brushes.Blue;
+                }
+                else
+                {
+                    MessageBox.Show("Du har allerede valgt dine billetter.");
+                }
+            }
+            else if (button.Background.Equals(Brushes.Blue))
+            {
+                _tickets++;
+                button.Background = Brushes.LightBlue;
+            }
+            else if (button.Background.Equals(Brushes.Red))
+            {
+                MessageBox.Show("Dette sæde er optaget");
+            }
+
+          
         }
     }
 }

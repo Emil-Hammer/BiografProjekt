@@ -3,32 +3,26 @@ using System.Collections.ObjectModel;
 
 namespace BiografProjekt
 {
-    public class Screen
+    public class Seat
     {
         #region Instance Fields
 
         private int _rows;
         private int _columns;
+        private int _seatKey;
 
         #endregion
 
-        #region Constructor
-        public Screen(int rows, int columns)
+        public Seat(int rows, int columns)
         {
             _rows = rows;
             _columns = columns;
         }
 
-        #endregion
-
-        #region Properties
-
-        public int ScreenKey { get; set; }
-
-        public int Rows { get; }
-
-        public int Columns { get; }
-
-        #endregion
+        public int SeatKey
+        {
+            get { return _seatKey; }
+            set { _seatKey = value; }
+        }
     }
 }
