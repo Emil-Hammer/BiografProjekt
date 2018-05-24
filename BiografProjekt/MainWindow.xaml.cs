@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace BiografProjekt
 {
@@ -8,8 +9,12 @@ namespace BiografProjekt
     /// </summary>
     public partial class MainWindow
     {
+        public static Frame _mainFrame;
+
         public MainWindow()
         {
+            
+
             DomainModel.Instance.Movies.AddMovie("Deadpool 2", 134, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Avengers: Infinity War", 144, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Utøya", 112, 5, "Leonardo da Vinci", "Leonardo diCaprio");
@@ -22,7 +27,7 @@ namespace BiografProjekt
             DomainModel.Instance.Movies.RunningTime(1);
             DomainModel.Instance.Movies.GetRating(1);
             InitializeComponent();
-
+            _mainFrame = Main;
         }
 
         private void BtnP1_OnClick(object sender, RoutedEventArgs e)
@@ -32,7 +37,6 @@ namespace BiografProjekt
 
         private void BtnP2_OnClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new ShowPage();
         }
     }
 }

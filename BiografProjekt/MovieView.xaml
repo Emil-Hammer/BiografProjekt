@@ -34,7 +34,9 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Age limit:"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Length:"/>
@@ -44,17 +46,28 @@
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedMovie.Title}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedMovie.Rating}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedMovie.Length}"/>
-                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedMovie.Director}"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedMovie.Director}"/>
 
-
-                <!--<ListView Grid.Row="3" Grid.Column="1"
-                          ItemsSource="{Binding ShowCollection}"
-                          SelectedItem="{Binding SelectedShow, Mode=TwoWay}">
-                </ListView>-->
-
-                <ListBox Grid.Row="3" Grid.Column="1"
+                <ListBox Grid.Row="4" Grid.Column="1"
+                         x:Name="ListBoxShow"
                          ItemsSource="{Binding ShowCollection}"
-                         SelectedItem="{Binding SelectedShow, Mode=TwoWay}"></ListBox>
+                         SelectedItem="{Binding SelectedShow, Mode=TwoWay}"
+                         SelectionChanged="ListBoxShow_OnSelectionChanged"
+                         Margin="0,0,10,0">
+                </ListBox>
+
+                <Button Grid.Row="5" Grid.Column="1" 
+                        Content="Bestil billetter"
+                        x:Name="Button"
+                        Click="Button_OnClick"
+                        Tag="{Binding SelectedShow.ShowKey}"
+                        Width="150"
+                        Height="40"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,10,0"
+                        IsEnabled="False">
+
+                </Button>
             </Grid>
         </Grid>
     </Grid>

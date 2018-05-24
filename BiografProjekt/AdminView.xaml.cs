@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BiografProjekt
 {
     /// <summary>
-    /// Interaction logic for ShowPage.xaml
+    /// Interaction logic for AdminView.xaml
     /// </summary>
-    public partial class ShowPage : Page
+    public partial class AdminView : Page
     {
-        public ShowPage()
+        public AdminView()
         {
             InitializeComponent();
         }

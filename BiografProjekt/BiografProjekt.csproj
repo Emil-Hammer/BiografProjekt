@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F1A61E9-9078-45B8-B3FE-1F0AE4297675}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>BiografProjekt</RootNamespace>
     <AssemblyName>BiografProjekt</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DomainModel.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieCatalog.cs" />
@@ -67,11 +70,18 @@
     <Compile Include="MovieViewModel.cs" />
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenCatalog.cs" />
+    <Compile Include="SeatView.xaml.cs">
+      <DependentUpon>SeatView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Show.cs" />
     <Compile Include="ShowCatalog.cs" />
-    <Compile Include="ShowPage.xaml.cs">
-      <DependentUpon>ShowPage.xaml</DependentUpon>
+    <Compile Include="TicketView.xaml.cs">
+      <DependentUpon>TicketView.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,7 +98,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowPage.xaml">
+    <Page Include="SeatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TicketView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

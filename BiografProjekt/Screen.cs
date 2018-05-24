@@ -1,17 +1,21 @@
-﻿namespace BiografProjekt
+﻿using System.Collections.Generic;
+
+namespace BiografProjekt
 {
     public class Screen
     {
         #region Instance Fields
 
+        private int _rows;
+        private int _columns;
         #endregion
 
         #region Constructor
 
         public Screen(int rows, int columns)
         {
-            Rows = rows;
-            Columns = columns;
+            _rows = rows;
+            _columns = columns;
         }
 
         #endregion

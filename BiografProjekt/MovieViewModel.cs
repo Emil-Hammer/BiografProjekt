@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -30,7 +29,6 @@ namespace BiografProjekt
             {
                 _selectedMovie = value;
                 FindShows();
-                ShowShows();
                 
                 OnPropertyChanged();
             }
@@ -53,16 +51,7 @@ namespace BiografProjekt
 
         public ObservableCollection<Show> ShowCollection
         {
-            get
-            {
-                ObservableCollection<Show> showCollection = ShowShows(); 
-                return showCollection;
-            }
-        }
-
-        public ObservableCollection<Show> ShowShows()
-        {
-            return _showCollection;
+            get { return _showCollection; }
         }
 
         public void FindShows()

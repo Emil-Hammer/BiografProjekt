@@ -66,5 +66,9 @@ namespace BiografProjekt
         }
         #endregion
 
+        public override string ToString()
+        {
+            return _showDate.Day + "/" + _showDate.Month + "-" + _showDate.Year + " kl. " + _showDate.Hour + ":" + _showDate.Minute;
+        }
     }
 }

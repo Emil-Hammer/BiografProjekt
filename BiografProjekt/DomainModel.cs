@@ -20,11 +20,17 @@
             Shows = new ShowCatalog();
         }
 
+        
+
         #region Properties
         public MovieCatalog Movies { get; }
         public ScreenCatalog Screens { get; }
         public ShowCatalog Shows { get; }
-
+        public Show Show { get; set; }
+        public int SliderAdult { get; set; }
+        public int SliderChild { get; set; }
+        public int SliderSenior { get; set; }
+        public int SliderFriends { get; set; }
         #endregion
     }
 }
