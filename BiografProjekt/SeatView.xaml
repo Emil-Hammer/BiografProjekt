@@ -3,7 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:BiografProjekt"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SeatView">
@@ -12,10 +11,27 @@
         <Style TargetType="Button">
             <Setter Property="Width" Value="30"/>
             <Setter Property="Height" Value="30"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="Content" Value="{Binding Path=GetSeatNumber}"/>
+            <Setter Property="Background" Value="LimeGreen"/>
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
     </Page.Resources>
-
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Line Grid.Column="1" Grid.Row="0" X1="10" X2="675" Y1="10" Y2="10" Stroke="Black" StrokeThickness="20"/>
+
+        <Grid Grid.Column="1" Grid.Row="1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="0.05*"/>
@@ -29,7 +45,9 @@
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -47,156 +65,166 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0"/>
-        <Button Grid.Column="1" Grid.Row="0"/>
-        <Button Grid.Column="2" Grid.Row="0"/>
-        <Button Grid.Column="3" Grid.Row="0"/>
-        <Button Grid.Column="4" Grid.Row="0"/>
-        <Button Grid.Column="5" Grid.Row="0"/>
-        <Button Grid.Column="6" Grid.Row="0"/>
-        <Button Grid.Column="7" Grid.Row="0"/>
-        <Button Grid.Column="8" Grid.Row="0"/>
-        <Button Grid.Column="9" Grid.Row="0"/>
-        <Button Grid.Column="0" Grid.Row="1"/>
-        <Button Grid.Column="1" Grid.Row="1"/>
-        <Button Grid.Column="2" Grid.Row="1"/>
-        <Button Grid.Column="3" Grid.Row="1"/>
-        <Button Grid.Column="4" Grid.Row="1"/>
-        <Button Grid.Column="5" Grid.Row="1"/>
-        <Button Grid.Column="6" Grid.Row="1"/>
-        <Button Grid.Column="7" Grid.Row="1"/>
-        <Button Grid.Column="8" Grid.Row="1"/>
-        <Button Grid.Column="9" Grid.Row="1"/>
-        <Button Grid.Column="0" Grid.Row="2"/>
-        <Button Grid.Column="1" Grid.Row="2"/>
-        <Button Grid.Column="2" Grid.Row="2"/>
-        <Button Grid.Column="3" Grid.Row="2"/>
-        <Button Grid.Column="4" Grid.Row="2"/>
-        <Button Grid.Column="5" Grid.Row="2"/>
-        <Button Grid.Column="6" Grid.Row="2"/>
-        <Button Grid.Column="7" Grid.Row="2"/>
-        <Button Grid.Column="8" Grid.Row="2"/>
-        <Button Grid.Column="9" Grid.Row="2"/>
-        <Button Grid.Column="0" Grid.Row="3"/>
-        <Button Grid.Column="1" Grid.Row="3"/>
-        <Button Grid.Column="2" Grid.Row="3"/>
-        <Button Grid.Column="3" Grid.Row="3"/>
-        <Button Grid.Column="4" Grid.Row="3"/>
-        <Button Grid.Column="5" Grid.Row="3"/>
-        <Button Grid.Column="6" Grid.Row="3"/>
-        <Button Grid.Column="7" Grid.Row="3"/>
-        <Button Grid.Column="8" Grid.Row="3"/>
-        <Button Grid.Column="9" Grid.Row="3"/>
-        <Button Grid.Column="0" Grid.Row="4"/>
-        <Button Grid.Column="1" Grid.Row="4"/>
-        <Button Grid.Column="2" Grid.Row="4"/>
-        <Button Grid.Column="3" Grid.Row="4"/>
-        <Button Grid.Column="4" Grid.Row="4"/>
-        <Button Grid.Column="5" Grid.Row="4"/>
-        <Button Grid.Column="6" Grid.Row="4"/>
-        <Button Grid.Column="7" Grid.Row="4"/>
-        <Button Grid.Column="8" Grid.Row="4"/>
-        <Button Grid.Column="9" Grid.Row="4"/>
-        <Button Grid.Column="0" Grid.Row="5"/>
-        <Button Grid.Column="1" Grid.Row="5"/>
-        <Button Grid.Column="2" Grid.Row="5"/>
-        <Button Grid.Column="3" Grid.Row="5"/>
-        <Button Grid.Column="4" Grid.Row="5"/>
-        <Button Grid.Column="5" Grid.Row="5"/>
-        <Button Grid.Column="6" Grid.Row="5"/>
-        <Button Grid.Column="7" Grid.Row="5"/>
-        <Button Grid.Column="8" Grid.Row="5"/>
-        <Button Grid.Column="9" Grid.Row="5"/>
-        <Button Grid.Column="0" Grid.Row="6"/>
-        <Button Grid.Column="1" Grid.Row="6"/>
-        <Button Grid.Column="2" Grid.Row="6"/>
-        <Button Grid.Column="3" Grid.Row="6"/>
-        <Button Grid.Column="4" Grid.Row="6"/>
-        <Button Grid.Column="5" Grid.Row="6"/>
-        <Button Grid.Column="6" Grid.Row="6"/>
-        <Button Grid.Column="7" Grid.Row="6"/>
-        <Button Grid.Column="8" Grid.Row="6"/>
-        <Button Grid.Column="9" Grid.Row="6"/>
-        <Button Grid.Column="0" Grid.Row="7"/>
-        <Button Grid.Column="1" Grid.Row="7"/>
-        <Button Grid.Column="2" Grid.Row="7"/>
-        <Button Grid.Column="3" Grid.Row="7"/>
-        <Button Grid.Column="4" Grid.Row="7"/>
-        <Button Grid.Column="5" Grid.Row="7"/>
-        <Button Grid.Column="6" Grid.Row="7"/>
-        <Button Grid.Column="7" Grid.Row="7"/>
-        <Button Grid.Column="8" Grid.Row="7"/>
-        <Button Grid.Column="9" Grid.Row="7"/>
-        <Button Grid.Column="0" Grid.Row="8"/>
-        <Button Grid.Column="1" Grid.Row="8"/>
-        <Button Grid.Column="2" Grid.Row="8"/>
-        <Button Grid.Column="3" Grid.Row="8"/>
-        <Button Grid.Column="4" Grid.Row="8"/>
-        <Button Grid.Column="5" Grid.Row="8"/>
-        <Button Grid.Column="6" Grid.Row="8"/>
-        <Button Grid.Column="7" Grid.Row="8"/>
-        <Button Grid.Column="8" Grid.Row="8"/>
-        <Button Grid.Column="9" Grid.Row="8"/>
-        <Button Grid.Column="0" Grid.Row="9"/>
-        <Button Grid.Column="1" Grid.Row="9"/>
-        <Button Grid.Column="2" Grid.Row="9"/>
-        <Button Grid.Column="3" Grid.Row="9"/>
-        <Button Grid.Column="4" Grid.Row="9"/>
-        <Button Grid.Column="5" Grid.Row="9"/>
-        <Button Grid.Column="6" Grid.Row="9"/>
-        <Button Grid.Column="7" Grid.Row="9"/>
-        <Button Grid.Column="8" Grid.Row="9"/>
-        <Button Grid.Column="9" Grid.Row="9"/>
-        <Button Grid.Column="0" Grid.Row="10"/>
-        <Button Grid.Column="1" Grid.Row="10"/>
-        <Button Grid.Column="2" Grid.Row="10"/>
-        <Button Grid.Column="3" Grid.Row="10"/>
-        <Button Grid.Column="4" Grid.Row="10"/>
-        <Button Grid.Column="5" Grid.Row="10"/>
-        <Button Grid.Column="6" Grid.Row="10"/>
-        <Button Grid.Column="7" Grid.Row="10"/>
-        <Button Grid.Column="8" Grid.Row="10"/>
-        <Button Grid.Column="9" Grid.Row="10"/>
-        <Button Grid.Column="0" Grid.Row="11"/>
-        <Button Grid.Column="1" Grid.Row="11"/>
-        <Button Grid.Column="2" Grid.Row="11"/>
-        <Button Grid.Column="3" Grid.Row="11"/>
-        <Button Grid.Column="4" Grid.Row="11"/>
-        <Button Grid.Column="5" Grid.Row="11"/>
-        <Button Grid.Column="6" Grid.Row="11"/>
-        <Button Grid.Column="7" Grid.Row="11"/>
-        <Button Grid.Column="8" Grid.Row="11"/>
-        <Button Grid.Column="9" Grid.Row="11"/>
-        <Button Grid.Column="0" Grid.Row="12"/>
-        <Button Grid.Column="1" Grid.Row="12"/>
-        <Button Grid.Column="2" Grid.Row="12"/>
-        <Button Grid.Column="3" Grid.Row="12"/>
-        <Button Grid.Column="4" Grid.Row="12"/>
-        <Button Grid.Column="5" Grid.Row="12"/>
-        <Button Grid.Column="6" Grid.Row="12"/>
-        <Button Grid.Column="7" Grid.Row="12"/>
-        <Button Grid.Column="8" Grid.Row="12"/>
-        <Button Grid.Column="9" Grid.Row="12"/>
-        <Button Grid.Column="0" Grid.Row="13"/>
-        <Button Grid.Column="1" Grid.Row="13"/>
-        <Button Grid.Column="2" Grid.Row="13"/>
-        <Button Grid.Column="3" Grid.Row="13"/>
-        <Button Grid.Column="4" Grid.Row="13"/>
-        <Button Grid.Column="5" Grid.Row="13"/>
-        <Button Grid.Column="6" Grid.Row="13"/>
-        <Button Grid.Column="7" Grid.Row="13"/>
-        <Button Grid.Column="8" Grid.Row="13"/>
-        <Button Grid.Column="9" Grid.Row="13"/>
-        <Button Grid.Column="0" Grid.Row="14"/>
-        <Button Grid.Column="1" Grid.Row="14"/>
-        <Button Grid.Column="2" Grid.Row="14"/>
-        <Button Grid.Column="3" Grid.Row="14"/>
-        <Button Grid.Column="4" Grid.Row="14"/>
-        <Button Grid.Column="5" Grid.Row="14"/>
-        <Button Grid.Column="6" Grid.Row="14"/>
-        <Button Grid.Column="7" Grid.Row="14"/>
-        <Button Grid.Column="8" Grid.Row="14"/>
-        <Button Grid.Column="9" Grid.Row="14"/>
+        <Button Grid.Column="0" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="0" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="1" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="2" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="3" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="4" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="5" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="6" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="7" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="8" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="9" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="10" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="11" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="12" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="13" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="0" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="2" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="3" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="4" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="5" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="6" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="7" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="8" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        <Button Grid.Column="9" Grid.Row="14" Click="ButtonBase_OnClick"/>
+        
+        <Label Grid.Column="10" Grid.Row="2" Content="{Binding Path=GetTicket, Mode=OneWay}"/>
+        <Button Grid.Column="10" Grid.Row="15" Click="BtnContinue_OnClick" Width="100" Height="30" Background="AliceBlue" Name="BtnContinue" Content="Fortsæt" IsEnabled="False"/>
         </Grid>
+    </Grid>
 </Page>
+
+
+
+
+
+
 

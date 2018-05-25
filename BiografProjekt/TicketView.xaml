@@ -61,6 +61,5 @@
                 HorizontalAlignment="Right"
                 Margin="0,0,10,0"
                 IsEnabled="False"/>
-        
-        </Grid>
+    </Grid>
 </Page>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace BiografProjekt
@@ -17,15 +16,12 @@ namespace BiografProjekt
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
             DomainModel.Instance.Show = (Show) ListBoxShow.SelectedItem;
-            MainWindow._mainFrame.Content = new TicketView();
+            MainWindow.MainFrame.Content = new TicketView();
         }
 
         private void ListBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                if (ListBoxShow.SelectedItem != null)
-                    Button.IsEnabled = true;
-                else
-                    Button.IsEnabled = false;
+            Button.IsEnabled = ListBoxShow.SelectedItem != null;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BiografProjekt
 {
@@ -8,10 +9,10 @@ namespace BiografProjekt
 
         private int _rows;
         private int _columns;
+
         #endregion
 
         #region Constructor
-
         public Screen(int rows, int columns)
         {
             _rows = rows;

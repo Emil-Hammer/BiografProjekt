@@ -20,23 +20,14 @@ namespace BiografProjekt
             DomainModel.Instance.SliderFriends = Convert.ToInt32(SliderFriends.Value);
             DomainModel.Instance.SliderSenior = Convert.ToInt32(SliderSenior.Value);
 
-            MainWindow._mainFrame.Content = new SeatView();
+            MainWindow.MainFrame.Content = new SeatView();
         }
 
         private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            double ticketCounter = 0;
+            var ticketCounter = SliderAdult.Value + SliderChild.Value + SliderFriends.Value + SliderSenior.Value;
 
-            ticketCounter = SliderAdult.Value + SliderChild.Value + SliderFriends.Value + SliderSenior.Value;
-
-            if (ticketCounter == 0)
-            {
-                Button.IsEnabled = false;
-            }
-            else
-            {
-                Button.IsEnabled = true;
-            }
+            Button.IsEnabled = ticketCounter != 0;
         }
     }
 }
