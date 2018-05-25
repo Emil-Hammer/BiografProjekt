@@ -13,8 +13,6 @@ namespace BiografProjekt
 
         public MainWindow()
         {
-            
-
             DomainModel.Instance.Movies.AddMovie("Deadpool 2", 134, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Avengers: Infinity War", 144, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Utøya", 112, 5, "Leonardo da Vinci", "Leonardo diCaprio");

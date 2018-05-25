@@ -20,9 +20,16 @@ namespace BiografProjekt
     /// </summary>
     public partial class ConfirmationView : Page
     {
-        public ConfirmationView()
+        private SeatView originalPage;
+        public ConfirmationView(SeatView incomingPage)
         {
             InitializeComponent();
+            originalPage = incomingPage;
+        }
+
+        private void Button()
+        {
+            originalPage.GetTicket.ToString();
         }
     }
 }

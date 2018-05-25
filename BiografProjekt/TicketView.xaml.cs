@@ -25,7 +25,7 @@ namespace BiografProjekt
 
         private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            var ticketCounter = SliderAdult.Value + SliderChild.Value + SliderFriends.Value + SliderSenior.Value;
+            int ticketCounter = Convert.ToInt32(SliderAdult.Value + SliderChild.Value + SliderFriends.Value + SliderSenior.Value);
 
             Button.IsEnabled = ticketCounter != 0;
         }

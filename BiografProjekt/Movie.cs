@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BiografProjekt
+﻿namespace BiografProjekt
 {
     public class Movie
     {
@@ -29,27 +26,7 @@ namespace BiografProjekt
         public string Director { get; }
 
         public string MainActors { get; }
-
-        //public string ShowsForMovie
-        //{
-        //    get { return ShowsForMovies(); }
-        //}
         #endregion
-
-        //public string ShowsForMovies()
-        //{
-        //    List<DateTime> showsIncludingMovie = new List<DateTime>();
-        //    foreach (var obj in DomainModel.Instance.Shows.Shows)
-        //    {
-        //        int showMovieKey = obj.Key;
-        //        if (Key == showMovieKey)
-        //        {
-        //            showsIncludingMovie.Add(obj.Value.DateForShow);
-        //        }
-        //    }
-
-        //    return showsIncludingMovie.
-        //}
 
         public override string ToString()
         {

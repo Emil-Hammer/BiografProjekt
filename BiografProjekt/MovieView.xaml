@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MaxWidth="250"></ColumnDefinition>
             <ColumnDefinition Width="8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
@@ -21,7 +21,7 @@
                   SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
         </ListView>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Margin="15,5,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.08*"></ColumnDefinition>

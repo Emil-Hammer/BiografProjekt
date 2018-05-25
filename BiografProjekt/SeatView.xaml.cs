@@ -56,7 +56,7 @@ namespace BiografProjekt
 
         private void BtnContinue_OnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainFrame.Content = new ConfirmationView();
+            MainWindow.MainFrame.Content = new ConfirmationView(this);
         }
 
         public int GetTicket
@@ -78,10 +78,11 @@ namespace BiografProjekt
                     _rowNumber++;
                 }
 
+                string[] arrayAbc = new string[] {"0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"};
 
-                return Convert.ToString(rowNo) + ":" + Convert.ToString(seatNo);
-            }
+                return arrayAbc[rowNo] + ":" + Convert.ToString(seatNo);}
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
