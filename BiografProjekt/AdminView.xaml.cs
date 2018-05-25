@@ -37,5 +37,9 @@ namespace BiografProjekt
             selectDate.SelectedDate.ToString();
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
