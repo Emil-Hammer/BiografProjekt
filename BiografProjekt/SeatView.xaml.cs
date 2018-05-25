@@ -1,39 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BiografProjekt
 {
-    /// <summary>
-    /// Interaction logic for SeatView.xaml
-    /// </summary>
-    public partial class SeatView : Page
+    public partial class SeatView : INotifyPropertyChanged
     {
-        private int _tickets = DomainModel.Instance.TicketAmount;
+        private int _seatNumber = 1;
+        private int _rowNumber = 1;
+
         public SeatView()
         {
+            DataContext = this;
             InitializeComponent();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
-            if (button.Background.Equals(Brushes.LightBlue))
+            if (button.Background.Equals(Brushes.LimeGreen))
             {
-                if (_tickets != 0)
+                if (DomainModel.Instance.TicketAmount != 0)
                 {
-                    _tickets--;
+                    DomainModel.Instance.TicketAmount = -1;
                     button.Background = Brushes.Blue;
                 }
                 else
@@ -43,15 +35,58 @@ namespace BiografProjekt
             }
             else if (button.Background.Equals(Brushes.Blue))
             {
-                _tickets++;
-                button.Background = Brushes.LightBlue;
+                DomainModel.Instance.TicketAmount = 1;
+                button.Background = Brushes.LimeGreen;
             }
             else if (button.Background.Equals(Brushes.Red))
             {
                 MessageBox.Show("Dette sæde er optaget");
             }
 
-          
+            if (DomainModel.Instance.TicketAmount != 0)
+            {
+                BtnContinue.IsEnabled = false;
+            }
+            else
+            {
+                BtnContinue.IsEnabled = true;
+            }
+            OnPropertyChanged();
+        }
+
+        private void BtnContinue_OnClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainFrame.Content = new ConfirmationView();
+        }
+
+        public int GetTicket
+        {
+            get { return DomainModel.Instance.TicketAmount; }
+            set => DomainModel.Instance.TicketAmount = value;
+        }
+
+        public string GetSeatNumber
+        {
+            get
+            {
+                int seatNo = _seatNumber++;
+                int rowNo = _rowNumber;
+
+                if (seatNo == 10)
+                {
+                    _seatNumber = 1;
+                    _rowNumber++;
+                }
+
+
+                return Convert.ToString(rowNo) + ":" + Convert.ToString(seatNo);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

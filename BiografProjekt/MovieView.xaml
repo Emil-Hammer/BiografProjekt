@@ -40,8 +40,8 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Age limit:"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Length:"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Showings:"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Director:"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Showings:"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Director:"/>
 
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedMovie.Title}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedMovie.Rating}"/>

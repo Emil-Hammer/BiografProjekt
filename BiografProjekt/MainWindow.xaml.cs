@@ -9,7 +9,7 @@ namespace BiografProjekt
     /// </summary>
     public partial class MainWindow
     {
-        public static Frame _mainFrame;
+        public static Frame MainFrame;
 
         public MainWindow()
         {
@@ -27,7 +27,7 @@ namespace BiografProjekt
             DomainModel.Instance.Movies.RunningTime(1);
             DomainModel.Instance.Movies.GetRating(1);
             InitializeComponent();
-            _mainFrame = Main;
+            MainFrame = Main;
         }
 
         private void BtnP1_OnClick(object sender, RoutedEventArgs e)
