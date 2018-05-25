@@ -33,13 +33,8 @@ namespace BiografProjekt
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            var SelectedDate = (DatePicker) sender;
-            SelectedDate.SelectedDate.ToString();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            var selectDate = (DatePicker) sender;
+            selectDate.SelectedDate.ToString();
         }
 
     }
