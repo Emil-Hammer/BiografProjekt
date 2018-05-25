@@ -37,6 +37,7 @@ namespace BiografProjekt
 
         private void BtnP2_OnClick(object sender, RoutedEventArgs e)
         {
+            Main.Content = new AdminView();
         }
     }
 }
