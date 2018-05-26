@@ -51,7 +51,7 @@ namespace BiografProjekt
             {
                 BtnContinue.IsEnabled = true;
             }
-            OnPropertyChanged();
+            OnPropertyChanged(nameof(GetTicket));
         }
 
         private void BtnContinue_OnClick(object sender, RoutedEventArgs e)
