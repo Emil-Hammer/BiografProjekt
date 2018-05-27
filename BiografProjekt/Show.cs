@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace BiografProjekt
 {
-    public class Show
+    public class Show : INotifyPropertyChanged
     {
         #region instance fields
 
@@ -11,16 +13,27 @@ namespace BiografProjekt
         private DateTime _showDate;
         private int _showTime;
         private int _showKey;
+        private SeatView _seatView;
+        private TicketView _ticketView;
+        private int _ticket;
+        private int _friends;
+        private int _seniors;
+        private int _adults;
+        private int _child;
+        private double _price;
         #endregion
 
         #region Constructor
-        public Show(int showKey, int movieKey, int screenKey, DateTime dateTime, int showTime)
+        public Show(int showKey, int movieKey, int screenKey, DateTime dateTime, int showTime, double price)
         {
             _movieKey = movieKey;
             _screenKey = screenKey;
             _showDate = dateTime;
             _showTime = showTime;
             _showKey = showKey;
+            _seatView = new SeatView();
+            _price = price;
+
         }
         #endregion
 
@@ -64,11 +77,104 @@ namespace BiografProjekt
             get { return _showKey; }
             set { _showKey = value; }
         }
+
+        public SeatView SeatForShow
+        {
+            get { return _seatView; }
+            set { _seatView = value; }
+        }
+
+        public TicketView TicketViewForShow
+        {
+            get
+            {
+                _ticketView = new TicketView();
+                return _ticketView;
+            }
+            set { _ticketView = value; }
+        }
+
+        public int SliderAdult
+        {
+            get { return _adults; }
+            set
+            {
+                _ticket += value;
+                _adults = value;
+                OnPropertyChanged();
+            }
+        }
+        public int SliderChild
+        {
+            get { return _child; }
+            set
+            {
+                _ticket += value;
+                _child = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int SliderSenior
+        {
+            get { return _seniors; }
+            set
+            {
+                _ticket += value;
+                _seniors = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int SliderFriends
+        {
+            get { return _friends; }
+            set
+            {
+                _ticket += value;
+                _friends = value;
+            }
+
+        }
+        public int TicketAmount
+        {
+            get
+            {
+                return _ticket;
+            }
+            set
+            {
+                _ticket += value;
+            }
+        }
+
+        public double PriceAdult
+        {
+            get { return _price; }
+        }
+        public double PriceChild
+        {
+            get { return _price*0.80; }
+        }
+        public double PriceSenior
+        {
+            get { return _price*0.80; }
+        }
+        public double PriceFriends
+        {
+            get { return _price*0.70; }
+        }
         #endregion
 
         public override string ToString()
         {
             return _showDate.Day + "/" + _showDate.Month + "-" + _showDate.Year + " kl. " + _showDate.Hour + ":" + _showDate.Minute;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

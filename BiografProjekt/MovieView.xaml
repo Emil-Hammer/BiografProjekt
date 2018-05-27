@@ -56,16 +56,7 @@
                          Margin="0,0,10,0">
                 </ListBox>
 
-                <Button Grid.Row="5" Grid.Column="1" 
-                        Content="Bestil billetter"
-                        x:Name="Button"
-                        Click="Button_OnClick"
-                        Tag="{Binding SelectedShow.ShowKey}"
-                        Width="150"
-                        Height="40"
-                        HorizontalAlignment="Right"
-                        Margin="0,0,10,0"
-                        IsEnabled="False">
+                <Button Grid.Row="5" Grid.Column="1" Content="Bestil billetter" x:Name="Button" Click="Button_OnClick" Tag="{Binding SelectedShow.ShowKey}" Width="150" Height="50" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Bottom" IsEnabled="False">
 
                 </Button>
             </Grid>

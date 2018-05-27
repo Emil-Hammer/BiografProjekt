@@ -17,11 +17,11 @@ namespace BiografProjekt
             DomainModel.Instance.Movies.AddMovie("Avengers: Infinity War", 144, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Utøya", 112, 5, "Leonardo da Vinci", "Leonardo diCaprio");
             DomainModel.Instance.Movies.AddMovie("Solo: A Star Wars Story", 155, 5, "Leonardo da Vinci", "Leonardo diCaprio");
-            DomainModel.Instance.Screens.AddScreen(2,2);
+            DomainModel.Instance.Screens.AddScreen(2, 2);
             DomainModel.Instance.Screens.AddScreen(4, 1);
             DomainModel.Instance.Screens.AddScreen(6, 8);
-            DomainModel.Instance.Shows.AddShow(2,1,new DateTime(2018,3,10,10,15,0));
-            DomainModel.Instance.Shows.AddShow(3, 2, new DateTime(2018, 3, 10, 12, 15, 0));
+            DomainModel.Instance.Shows.AddShow(2, 1, new DateTime(2018, 3, 10, 10, 15, 0), 100);
+            DomainModel.Instance.Shows.AddShow(3, 2, new DateTime(2018, 3, 10, 12, 15, 0), 100);
             DomainModel.Instance.Movies.RunningTime(1);
             DomainModel.Instance.Movies.GetRating(1);
             InitializeComponent();

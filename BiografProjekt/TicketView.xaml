@@ -23,8 +23,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            <ColumnDefinition Width="0.05*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -38,28 +39,67 @@
         
         <Label Grid.Column="0" Grid.Row="0" Content="Vælg billetter:"/>
 
-        <Label Grid.Column="0" Grid.Row="1" Content="Antal voksne:"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Antal børn:"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Antal pensionister:"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Antal biografens venner:"/>
+        <TextBlock Grid.Column="0" Grid.Row="1">
+           <Run Text="Antal voksne: "/>
+           <Run Text="{Binding ElementName=SliderAdult, Path=Value}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2">
+            <Run Text="Antal børn: "/>
+            <Run Text="{Binding ElementName=SliderChild, Path=Value}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3">
+            <Run Text="Antal senior: "/>
+            <Run Text="{Binding ElementName=SliderSenior, Path=Value}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4">
+            <Run Text="Antal Biovenner: "/>
+            <Run Text="{Binding ElementName=SliderFriends, Path=Value}"/>
+        </TextBlock>
+
+        <TextBlock Grid.Column="1" Grid.Row="1">
+            <Run Text="Pris pr. billet: "/>
+            <Run Text="{Binding PriceAdult, Mode=OneTime}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="2">
+            <Run Text="Pris pr. billet: "/>
+            <Run Text="{Binding PriceChild, Mode=OneTime}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="3">
+            <Run Text="Pris pr. billet: "/>
+            <Run Text="{Binding PriceSenior, Mode=OneTime}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="4">
+            <Run Text="Pris pr. billet: "/>
+            <Run Text="{Binding PriceFriends, Mode=OneTime}"/>
+        </TextBlock>
+
+        <TextBlock Grid.Column="2" Grid.Row="1">
+            <Run Text="Samlet pris: "/>
+            <Run Text="{Binding PriceTicketCombinedAdult, Mode=TwoWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="2">
+            <Run Text="Samlet pris: "/>
+            <Run Text="{Binding PriceTicketCombinedChild, Mode=TwoWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="3">
+            <Run Text="Samlet pris: "/>
+            <Run Text="{Binding PriceTicketCombinedSenior, Mode=TwoWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="4">
+            <Run Text="Samlet pris: "/>
+            <Run Text="{Binding PriceTicketCombinedFriends, Mode=TwoWay}"/>
+        </TextBlock>
+
+        <Slider Grid.Column="3" Grid.Row="1" x:Name="SliderAdult" ValueChanged="Slider_OnValueChanged"/>
+        <Slider Grid.Column="3" Grid.Row="2" x:Name="SliderChild" ValueChanged="Slider_OnValueChanged"/>
+        <Slider Grid.Column="3" Grid.Row="3" x:Name="SliderSenior" ValueChanged="Slider_OnValueChanged"/>
+        <Slider Grid.Column="3" Grid.Row="4" x:Name="SliderFriends" ValueChanged="Slider_OnValueChanged"/>
+
+        <TextBlock Grid.Column="2" Grid.Row="5">
+            <Run Text="Pris i alt: "/>
+            <Run Text="{Binding TotalPrice, Mode=OneWay}"/>
+        </TextBlock>
         
-        <Label Grid.Column="1" Grid.Row="1" Content="{Binding ElementName=SliderAdult, Path=Value}"/>
-        <Label Grid.Column="1" Grid.Row="2" Content="{Binding ElementName=SliderChild, Path=Value}"/>
-        <Label Grid.Column="1" Grid.Row="3" Content="{Binding ElementName=SliderSenior, Path=Value}"/>
-        <Label Grid.Column="1" Grid.Row="4" Content="{Binding ElementName=SliderFriends, Path=Value}"/>
-
-        <Slider Grid.Column="2" Grid.Row="1" x:Name="SliderAdult" ValueChanged="Slider_OnValueChanged"/>
-        <Slider Grid.Column="2" Grid.Row="2" x:Name="SliderChild" ValueChanged="Slider_OnValueChanged"/>
-        <Slider Grid.Column="2" Grid.Row="3" x:Name="SliderSenior" ValueChanged="Slider_OnValueChanged"/>
-        <Slider Grid.Column="2" Grid.Row="4" x:Name="SliderFriends" ValueChanged="Slider_OnValueChanged"/>
-
-        <Button Grid.Column="2" Grid.Row="5" x:Name="Button"
-                Content="Vælg sæder"
-                Click="Button_OnClick"
-                Width="150"
-                Height="40"
-                HorizontalAlignment="Right"
-                Margin="0,0,10,0"
-                IsEnabled="False"/>
+        <Button Grid.Column="3" Grid.Row="5" x:Name="Button" Content="Vælg sæder" Click="Button_OnClick" Width="150" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15" IsEnabled="False"/>
     </Grid>
 </Page>

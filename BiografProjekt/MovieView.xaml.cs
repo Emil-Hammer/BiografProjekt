@@ -16,7 +16,7 @@ namespace BiografProjekt
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
             DomainModel.Instance.Show = (Show) ListBoxShow.SelectedItem;
-            MainWindow.MainFrame.Content = new TicketView();
+            MainWindow.MainFrame.Content = DomainModel.Instance.Show.TicketViewForShow;
         }
 
         private void ListBoxShow_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

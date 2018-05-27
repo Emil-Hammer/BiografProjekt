@@ -9,10 +9,10 @@ namespace BiografProjekt
 
         public Dictionary<int, Show> Shows { get; } = new Dictionary<int, Show>();
 
-        public void AddShow(int movieKey, int screenKey, DateTime dateTime)
+        public void AddShow(int movieKey, int screenKey, DateTime dateTime, double price)
         {
             _keyCount++;
-            CreateShow(new Show(_keyCount,movieKey,screenKey,dateTime, LengthOfMovie(movieKey)));
+            CreateShow(new Show(_keyCount,movieKey,screenKey,dateTime, LengthOfMovie(movieKey), price));
         }
 
         private void CreateShow(Show s)

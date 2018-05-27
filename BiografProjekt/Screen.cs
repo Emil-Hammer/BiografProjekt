@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
-namespace BiografProjekt
+﻿namespace BiografProjekt
 {
     public class Screen
     {
