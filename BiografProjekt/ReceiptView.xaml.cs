@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
-using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+
 using PrintDialog = System.Windows.Controls.PrintDialog;
 
 
@@ -140,14 +134,27 @@ namespace BiografProjekt
                 return combinedTicketList;
             }
         }
+        public string GetEndTime
+        {
+            get
+            {
+                DateTime EndTime = DomainModel.Instance.Show.DateForShow.Add(new TimeSpan(0, DomainModel.Instance.Show.MovieForShow.Length, 0));
+
+                return EndTime.Day + "/" + EndTime.Month + " kl. " + EndTime.Hour + ":" + EndTime.Minute;
+
+            }
+        }
 
         private void BtnPrint_OnClick(object sender, RoutedEventArgs e)
         {
+            PrintBtn.Visibility = Visibility.Hidden;
+
             PrintDialog print = new PrintDialog();
 
             print.PrintVisual(Grid, "Biografbilletter");
-        }
 
+            PrintBtn.Visibility = Visibility.Visible;
+        }
     }
 
 }

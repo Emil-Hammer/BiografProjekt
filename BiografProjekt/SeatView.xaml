@@ -21,7 +21,7 @@
 
         </Style>
     </Page.Resources>
-    <Grid>
+    <Grid Name="Grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>

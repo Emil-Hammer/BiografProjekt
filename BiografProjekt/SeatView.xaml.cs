@@ -14,11 +14,13 @@ namespace BiografProjekt
         private int _rowNumber = 1;
         private List<string> _seatList;
         private string _returner;
+        private List<Button> _seatObjList;
 
         public SeatView()
         {
             DataContext = this;
             _seatList = new List<string>();
+            _seatObjList = new List<Button>();
             InitializeComponent();
         }
 
@@ -32,6 +34,7 @@ namespace BiografProjekt
                         DomainModel.Instance.Show.TicketAmount = -1;
                         button.Background = Brushes.Blue;
                         _seatList.Add(button.Tag.ToString());
+                        _seatObjList.Add(button);
                         OnPropertyChanged(nameof(GetTicket));
                     }
                     else
@@ -44,6 +47,7 @@ namespace BiografProjekt
                     DomainModel.Instance.Show.TicketAmount = 1;
                     button.Background = Brushes.LimeGreen;
                     _seatList.Remove(button.Tag.ToString());
+                    _seatObjList.Remove(button);
                     OnPropertyChanged(nameof(GetTicket));
                 }
                 else if (button.Background.Equals(Brushes.Red))
@@ -106,6 +110,11 @@ namespace BiografProjekt
 
         }
 
+        public List<Button> GetSeatButtonList
+        {
+            get { return _seatObjList; }
+        }
+
         public string GetTag
         {
             get
@@ -117,6 +126,7 @@ namespace BiografProjekt
         public List<string> GetSeatList
         {
             get { return _seatList; }
+            set { _seatList = value; }
         }
        
 

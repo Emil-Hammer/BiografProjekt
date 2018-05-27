@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace BiografProjekt
 {
@@ -30,6 +31,13 @@ namespace BiografProjekt
 
         private void BtnP1_OnClick(object sender, RoutedEventArgs e)
         {
+            foreach (var v in DomainModel.Instance.Show.SeatForShow.GetSeatButtonList)
+            {
+                v.Background = Brushes.LimeGreen;
+            }
+
+            DomainModel.Instance.Show.SeatForShow.GetSeatList.Clear();
+  
             Main.Content = new MovieView();
         }
 
@@ -40,7 +48,11 @@ namespace BiografProjekt
 
         private void BtnP3_OnClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new ReceiptView();;
+            foreach (var v in DomainModel.Instance.Show.SeatForShow.GetSeatButtonList)
+            {
+                v.Background = Brushes.Red;
+            }
+            Main.Content = new ReceiptView();
         }
     }
 }
