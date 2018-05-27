@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace BiografProjekt
 {
-    public class MovieViewModel : INotifyPropertyChanged
+    public class MovieViewModel/* : INotifyPropertyChanged*/
     {
         private Movie _selectedMovie;
         private Show _selectedShow;
@@ -30,7 +30,7 @@ namespace BiografProjekt
                 _selectedMovie = value;
                 FindShows();
                 
-                OnPropertyChanged();
+                //OnPropertyChanged();
             }
         }
 
@@ -40,13 +40,16 @@ namespace BiografProjekt
             set
             {
                 _selectedShow = value;
-                OnPropertyChanged();
             }
         }
 
         public ObservableCollection<Movie> MovieCollection
         {
-            get { return _movieCollection; }
+            get
+            {
+                //OnPropertyChanged();
+                return _movieCollection;
+            }
         }
 
         public ObservableCollection<Show> ShowCollection
@@ -70,10 +73,10 @@ namespace BiografProjekt
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 }

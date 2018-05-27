@@ -85,6 +85,12 @@
       <DependentUpon>MovieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MovieViewModel.cs" />
+    <Compile Include="PaymentView.xaml.cs">
+      <DependentUpon>PaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiptView.xaml.cs">
+      <DependentUpon>ReceiptView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenCatalog.cs" />
     <Compile Include="SeatView.xaml.cs">
@@ -116,6 +122,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReceiptView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

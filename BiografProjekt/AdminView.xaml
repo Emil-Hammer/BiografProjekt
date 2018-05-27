@@ -28,36 +28,59 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Tilføj film" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Opret sal" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Opret tidspunkt" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Opret Film" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Opret Sal" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Opret Show" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <TextBox x:Name="Title" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="500" FontSize="24" MaxLength="80"></TextBox>
+        <Grid Column="1" Row="0" ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Row="0">
+                <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Button x:Name="ButtonAdd"
-                    Grid.Row="1" Grid.Column="1"
-                    Content="Tilføj sal"
-                    Width="150"
-                    Height="40"
-                    HorizontalAlignment="Center"
-                    Click="ButtonAdd_OnClick"
-                    VerticalAlignment="Top"
-                    Margin="0,20,0,0"
-                    FontSize="24"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Titel:"/>
+            <TextBox x:Name="Title" Grid.Row="0" Grid.Column="1" Width="Auto" Height="Auto" Margin="1" FontSize="12" MaxLength="120" SelectionChanged="Movie_SelectionChanged"/>
 
-        <Button x:Name="ButtonRemove"
-                    Grid.Row="1" Grid.Column="1" 
-                    Content="Fjern sal"
-                    Width="150"
-                    Height="40"
-                    HorizontalAlignment="Center"
-                    Click="ButtonRemove_OnClick"
-                    VerticalAlignment="Bottom"
-                    Margin="0,0,0,20"
-                    FontSize="24"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Length:"/>
+            <TextBox x:Name="Length" Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Margin="1" FontSize="12" MaxLength="120" PreviewTextInput="Length_OnPreviewTextInput" SelectionChanged="Movie_SelectionChanged"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Age limit:"/>
+            <TextBox x:Name="Agelimit" Grid.Row="2" Grid.Column="1" Width="Auto" Height="Auto" Margin="1" FontSize="12" MaxLength="120" PreviewTextInput="Length_OnPreviewTextInput" SelectionChanged="Movie_SelectionChanged"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Director:"/>
+            <TextBox x:Name="Director" Grid.Row="3" Grid.Column="1" Width="Auto" Height="Auto" Margin="1" FontSize="12" MaxLength="120" SelectionChanged="Movie_SelectionChanged"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Main actors:"/>
+            <TextBox x:Name="MainActors" Grid.Row="4" Grid.Column="1" Width="Auto" Height="Auto" Margin="1" FontSize="12" MaxLength="120" SelectionChanged="Movie_SelectionChanged"/>
+            
+            <Button x:Name="CreateMovie"  Grid.Row="0" Grid.RowSpan="5" Grid.Column="2" Margin="35" Content="Tilføj film" Width="150" Height="50" Click="BtnCreateMovie_OnClick" IsEnabled="False"></Button>
+            </Grid>
         
-        <ListView Grid.Column="2" Grid.Row="1" ItemsSource="{Binding MovieCollection}"/>
-           
+        <Grid Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+                <Button x:Name="ButtonMovieRemove" Grid.Column="1" Content="Fjern film" Width="150" Height="40" HorizontalAlignment="Center" Click="ButtonRemoveMovie_OnClick" Margin="15" FontSize="16" IsEnabled="False"/>
+
+            <ListView x:Name="ListView"  Grid.Column="0" ItemsSource="{Binding MovieCollection}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}" Margin="5" SelectionChanged="ListView_OnSelectionChanged"/>
+        </Grid>
+        </Grid>
+
         <TextBlock Grid.Row="2" Grid.Column="1" Text="Vælg dato" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Text="Vælg time" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="3" Text="Vælg minut" FontSize="24" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -73,3 +96,4 @@
 
     </Grid>
 </Page>
+

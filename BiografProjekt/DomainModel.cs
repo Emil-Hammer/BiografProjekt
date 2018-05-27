@@ -1,4 +1,6 @@
-﻿namespace BiografProjekt
+﻿using System.Windows.Controls;
+
+namespace BiografProjekt
 {
     public class DomainModel
     {
