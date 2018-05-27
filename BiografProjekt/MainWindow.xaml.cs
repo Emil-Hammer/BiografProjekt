@@ -37,5 +37,10 @@ namespace BiografProjekt
         {
             Main.Content = new AdminView();
         }
+
+        private void BtnP3_OnClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ReceiptView();;
+        }
     }
 }

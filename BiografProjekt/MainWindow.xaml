@@ -13,9 +13,10 @@
         <Button Content="Forside" MinWidth="100" Click="BtnP1_OnClick"></Button>
         
         <Button Content="Administrations Kontrolcenter" MinWidth="100" Click="BtnP2_OnClick"></Button>
-        
-            
-    </StackPanel>
+
+        <Button Content="Receipt" MinWidth="100" Click="BtnP3_OnClick"></Button>
+
+        </StackPanel>
         
     
     <Frame x:Name="Main" Source="MovieView.xaml" Margin="0,35,0,0" NavigationUIVisibility="Hidden">
