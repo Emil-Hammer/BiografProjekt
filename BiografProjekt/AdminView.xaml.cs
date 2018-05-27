@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Dynamic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -28,10 +29,8 @@ namespace BiografProjekt
             }
         }
 
-        private void ButtonBase_OnClick__(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
+        //textbox input should add new title to listview? 
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -41,7 +40,17 @@ namespace BiografProjekt
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ButtonAdd.IsEnabled = ListViewItem.IsEnabledProperty != null; // Det er vel ikke dette så den viser filmene i listview?
+        }
 
+        private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
+        {
+            new 
+        }
+
+        private void ButtonRemove_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
