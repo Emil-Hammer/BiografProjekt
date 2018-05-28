@@ -145,7 +145,7 @@ namespace BiografProjekt
 
         private void BtnContinue_OnClick(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.MainFrame.Content = DomainModel.Instance.Show.PaymentForShow = new PaymentView();
         }
     }
 }

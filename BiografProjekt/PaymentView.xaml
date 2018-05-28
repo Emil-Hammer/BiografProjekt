@@ -9,6 +9,46 @@
       Title="PaymentView">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         
+        <Grid Row="0" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0">
+                <Run FontSize="16" Text="Betalingsoplysninger:"></Run>
+            </TextBlock>
+            <TextBlock Grid.Row="1">
+                <Run FontSize="16" Text="Kortnummer:"></Run>
+                <TextBox Name="Cardnumber" Width="120" Height="25" MaxLength="16" SelectionChanged="CardInfo_OnSelectionChanged" PreviewTextInput="Number_OnPreviewTextInput"></TextBox>
+            </TextBlock>
+            <TextBlock Grid.Row="2">
+                <Run FontSize="16" Text="Udløbsdato:"></Run>
+                <TextBox Name="Month" Width="20" Height="25" MaxLength="2" SelectionChanged="CardInfo_OnSelectionChanged" PreviewTextInput="Number_OnPreviewTextInput"></TextBox>
+                <Run FontSize="16" Text="/"></Run>
+                <TextBox Name="Year" Width="20" Height="25" MaxLength="2" SelectionChanged="CardInfo_OnSelectionChanged" PreviewTextInput="Number_OnPreviewTextInput"></TextBox>
+            </TextBlock>
+            <TextBlock Grid.Row="3">
+                <Run FontSize="16" Text="Sikkerhedskode:"></Run>
+                <TextBox Name="Securitycode" Width="25" Height="25" MaxLength="3" SelectionChanged="CardInfo_OnSelectionChanged" PreviewTextInput="Number_OnPreviewTextInput"></TextBox>
+            </TextBlock>
+            <TextBlock Grid.Row="4">
+                <Run FontSize="16" Text="Kortindehavers fulde navn:"></Run>
+                <TextBox Name="Name" Width="150" Height="25" SelectionChanged="CardInfo_OnSelectionChanged"></TextBox>
+            </TextBlock>
+
+        </Grid>
+
+        <Grid Row="1">
+            <Button Click="BtnContinue_OnClick" Width="150" Height="50" Background="AliceBlue" Name="BtnPay" Content="Betal" IsEnabled="False" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Bottom"/>
+        </Grid>
     </Grid>
 </Page>
