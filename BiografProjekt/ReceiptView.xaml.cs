@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using PrintDialog = System.Windows.Controls.PrintDialog;
 
 
@@ -10,7 +9,7 @@ namespace BiografProjekt
     /// <summary>
     /// Interaction logic for ReceiptView.xaml
     /// </summary>
-    public partial class ReceiptView : Page
+    public partial class ReceiptView
     {
         public ReceiptView()
         {
@@ -142,9 +141,9 @@ namespace BiografProjekt
         {
             get
             {
-                DateTime EndTime = DomainModel.Instance.Show.DateForShow.Add(new TimeSpan(0, DomainModel.Instance.Show.MovieForShow.Length, 0));
+                DateTime endTime = DomainModel.Instance.Show.DateForShow.Add(new TimeSpan(0, DomainModel.Instance.Show.MovieForShow.Length, 0));
 
-                return EndTime.Day + "/" + EndTime.Month + " kl. " + EndTime.Hour + ":" + EndTime.Minute;
+                return endTime.Day + "/" + endTime.Month + " kl. " + endTime.Hour + ":" + endTime.Minute;
 
             }
         }

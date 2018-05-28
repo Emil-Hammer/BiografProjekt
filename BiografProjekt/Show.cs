@@ -34,8 +34,7 @@ namespace BiografProjekt
             _showTime = showTime;
             _showKey = showKey;
             _price = price;
-
-        }
+            }
         #endregion
 
         #region Properties
@@ -181,7 +180,9 @@ namespace BiografProjekt
 
         public override string ToString()
         {
-            return _showDate.Day + "/" + _showDate.Month + "-" + _showDate.Year + " kl. " + _showDate.Hour + ":" + _showDate.Minute;
+            
+
+            return _showDate.Day + "/" + _showDate.Month + "-" + _showDate.Year + " kl. " + _showDate.Hour + ":" + _showDate.Minute.ToString("00") + " - Sal: " + _screenKey;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

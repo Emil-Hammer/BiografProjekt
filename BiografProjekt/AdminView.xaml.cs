@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -14,6 +13,8 @@ namespace BiografProjekt
     /// </summary>
     public partial class AdminView : INotifyPropertyChanged
     {
+        private int _textboxCounter;
+
         public AdminView()
         {
             InitializeComponent();
@@ -30,21 +31,8 @@ namespace BiografProjekt
                     ComboboxMinute.Items.Add(i);
                 }
             }
-
-            ComboboxScreen.Items.Add(null);
-            for (int i = 1; i < 6; i++)
-            {
-                ComboboxScreen.Items.Add(i);
-            }
-
         }
         
-        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectDate = (DatePicker) sender;
-            selectDate.SelectedDate.ToString();
-        }
-
         private void ButtonRemoveMovie_OnClick(object sender, RoutedEventArgs e)
         {
             Movie obj = (Movie) ListView.SelectedItem;
@@ -68,7 +56,30 @@ namespace BiografProjekt
         private void BtnCreateShow_OnClick(object sender, RoutedEventArgs e)
         {
             Movie movVar = (Movie)ListView.SelectedItem;
-            DomainModel.Instance.Shows.AddShow(movVar.Key, DomainModel.Instance.Shows.FindAvailableScreen(DatePicker,(int)ComboboxHour.));
+
+
+            //Hele denne del opfører sig meget underligt og virker ikke.
+            if (DatePicker.SelectedDate != null) 
+            {
+                var screen = DomainModel.Instance.Shows.FindAvailableScreen(DatePicker, Convert.ToInt32(ComboboxHour.Text), Convert.ToInt32(ComboboxMinute.Text), movVar.Length);
+                
+                if (screen == 100)
+                {
+                    MessageBox.Show("Kunne ikke finde en gyldig sal at placere showet i. Prøv et andet tidspunkt.");
+                }
+                else if (screen == 101)
+                {
+                    MessageBox.Show("Du har ikke valgt en dato");
+                }
+                else
+                {
+                DateTime datePicker = DatePicker.SelectedDate.Value;
+                
+                DateTime movDateTime = new DateTime(datePicker.Year,datePicker.Month,datePicker.Day, Convert.ToInt32(ComboboxHour.Text), Convert.ToInt32(ComboboxMinute.Text), 0);
+                DomainModel.Instance.Shows.AddShow(movVar.Key, screen,movDateTime,Convert.ToInt32(TextBoxPrice.Text));
+                MessageBox.Show("Oprettet show!");
+                }
+            }
         }
 
 
@@ -118,8 +129,8 @@ namespace BiografProjekt
 
         private void ComboboxScreen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ComboboxScreen.SelectedValue == null || ComboboxHour.SelectedValue == null ||
-                ComboboxMinute.SelectedValue == null || DatePicker.SelectedDate == null || ListView.SelectedItem == null)
+            if (ComboboxHour.SelectedValue == null ||
+                ComboboxMinute.SelectedValue == null || DatePicker.SelectedDate == null || ListView.SelectedItem == null || _textboxCounter == 0)
             {
                 CreateShow.IsEnabled = false;
             }
@@ -128,6 +139,21 @@ namespace BiografProjekt
                 CreateShow.IsEnabled = true;
             }
          
+        }
+
+        private void TextBoxPrice_OnSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxPrice.Text == "")
+            {
+                _textboxCounter = 0;
+            }
+            else
+            {
+                _textboxCounter = 1;
+            }
+            
+            ComboboxScreen_SelectionChanged(sender, null);
+
         }
     }
 }

@@ -1,17 +1,19 @@
-﻿namespace BiografProjekt
+﻿using System;
+using System.Collections.Generic;
+
+namespace BiografProjekt
 {
     public class Screen
     {
         #region Instance Fields
 
-        private int _rows;
-        private int _columns;
+        private List<DateTime> _shows;
 
         #endregion
-
         #region Constructor
         public Screen()
         {
+            _shows = new List<DateTime>();
         }
 
         #endregion
@@ -20,9 +22,11 @@
 
         public int ScreenKey { get; set; }
 
-        public int Rows { get; }
-
-        public int Columns { get; }
+        public List<DateTime> GetShowDateTimeList
+        {
+            get { return _shows; }
+            set { _shows = value; }
+        }
 
         #endregion
     }

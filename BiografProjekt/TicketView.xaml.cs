@@ -92,7 +92,11 @@ namespace BiografProjekt
             DomainModel.Instance.Show.SliderChild = Convert.ToInt32(SliderChild.Value);
             DomainModel.Instance.Show.SliderFriends = Convert.ToInt32(SliderFriends.Value);
             DomainModel.Instance.Show.SliderSenior = Convert.ToInt32(SliderSenior.Value);
-            DomainModel.Instance.Show.SeatForShow = new SeatView();
+
+            if (DomainModel.Instance.Show.SeatForShow == null)
+            {
+                DomainModel.Instance.Show.SeatForShow = new SeatView();
+            }
             MainWindow.MainFrame.Content = DomainModel.Instance.Show.SeatForShow;
             
         }

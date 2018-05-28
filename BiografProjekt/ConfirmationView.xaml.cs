@@ -136,9 +136,9 @@ namespace BiografProjekt
         {
             get
             {
-                DateTime EndTime = DomainModel.Instance.Show.DateForShow.Add(new TimeSpan(0,DomainModel.Instance.Show.MovieForShow.Length,0));
+                DateTime endTime = DomainModel.Instance.Show.DateForShow.Add(new TimeSpan(0,DomainModel.Instance.Show.MovieForShow.Length,0));
 
-                return EndTime.Day + "/" + EndTime.Month + " kl. " + EndTime.Hour + ":" + EndTime.Minute;
+                return endTime.Day + "/" + endTime.Month + " kl. " + endTime.Hour + ":" + endTime.Minute;
 
             }
         }

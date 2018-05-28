@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Controls;
 
 namespace BiografProjekt
 {
@@ -40,7 +39,7 @@ namespace BiografProjekt
             List<int> nameList = new List<int>();
             foreach (var v in Screens)
             {
-                nameList.Add(v.Value.Columns);
+                nameList.Add(v.Value.ScreenKey);
             }
 
             string combinedString = string.Join(", ", nameList);
