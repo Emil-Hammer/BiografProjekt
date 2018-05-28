@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace BiografProjekt
 {
@@ -49,6 +50,25 @@ namespace BiografProjekt
 
             string combinedString = string.Join(", ", nameList);
             return combinedString;
+            
+        }
+        public int FindAvailableScreen(DatePicker datePicker, int hours, int minutes, int length)
+        {
+            TimeSpan movieTimeSpan = new TimeSpan(hours, minutes, 0);
+            DateTime movieDateTime = new DateTime(datePicker.SelectedDate.Value.Year,
+                datePicker.SelectedDate.Value.Month, datePicker.SelectedDate.Value.Day, hours, minutes, 0);
+            TimeSpan movieRequestLength = new TimeSpan(0, length, 0);
+            
+            foreach (var show in Shows)
+            {
+                TimeSpan movieLength = new TimeSpan(0, show.Value.MovieForShow.Length, 0);
+                if (movieDateTime.Ticks + movieTimeSpan.Ticks > show.Value.DateForShow.Ticks + movieLength.Ticks || movieDateTime.Ticks + movieTimeSpan.Ticks + movieRequestLength.Ticks < show.Value.DateForShow.Ticks)
+                {
+                    return 2;
+                }
+            }
+
+            return 100;
         }
     }
 }

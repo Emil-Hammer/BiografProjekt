@@ -30,10 +30,15 @@ namespace BiografProjekt
                     ComboboxMinute.Items.Add(i);
                 }
             }
+
+            ComboboxScreen.Items.Add(null);
+            for (int i = 1; i < 6; i++)
+            {
+                ComboboxScreen.Items.Add(i);
+            }
+
         }
-
-        //textbox input should add new title to listview? 
-
+        
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectDate = (DatePicker) sender;
@@ -59,6 +64,13 @@ namespace BiografProjekt
             MainWindow.MainFrame.Content = new AdminView();
 
         }
+
+        private void BtnCreateShow_OnClick(object sender, RoutedEventArgs e)
+        {
+            Movie movVar = (Movie)ListView.SelectedItem;
+            DomainModel.Instance.Shows.AddShow(movVar.Key, DomainModel.Instance.Shows.FindAvailableScreen(DatePicker,(int)ComboboxHour.));
+        }
+
 
         private void Length_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -92,7 +104,8 @@ namespace BiografProjekt
         }
 
         private void ListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {   
+            ComboboxScreen_SelectionChanged(sender, e);
             if (sender != null)
             {
                 ButtonMovieRemove.IsEnabled = true;
@@ -101,6 +114,20 @@ namespace BiografProjekt
             {
                 ButtonMovieRemove.IsEnabled = false;
             }
+        }
+
+        private void ComboboxScreen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboboxScreen.SelectedValue == null || ComboboxHour.SelectedValue == null ||
+                ComboboxMinute.SelectedValue == null || DatePicker.SelectedDate == null || ListView.SelectedItem == null)
+            {
+                CreateShow.IsEnabled = false;
+            }
+            else
+            {
+                CreateShow.IsEnabled = true;
+            }
+         
         }
     }
 }

@@ -10,10 +10,8 @@
         #endregion
 
         #region Constructor
-        public Screen(int rows, int columns)
+        public Screen()
         {
-            _rows = rows;
-            _columns = columns;
         }
 
         #endregion

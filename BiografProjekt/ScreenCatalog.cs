@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace BiografProjekt
 {
@@ -8,9 +9,9 @@ namespace BiografProjekt
 
         public Dictionary<int, Screen> Screens { get; } = new Dictionary<int, Screen>();
 
-        public void AddScreen(int rows, int columns)
+        public void AddScreen()
         {
-            CreateScreen(new Screen(rows, columns));
+            CreateScreen(new Screen());
         }
 
         private void CreateScreen(Screen s)
@@ -45,5 +46,6 @@ namespace BiografProjekt
             string combinedString = string.Join(", ", nameList);
             return combinedString;
         }
+        
     }
 }
