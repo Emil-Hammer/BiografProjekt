@@ -82,8 +82,8 @@ namespace BiografProjekt
             }
             set
             {
+                DomainModel.Instance.Show.TicketAmount = value;
                 OnPropertyChanged();
-                DomainModel.Instance.Show.TicketAmount = value; 
             }
         }
 

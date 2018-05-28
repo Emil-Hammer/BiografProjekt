@@ -14,6 +14,7 @@ namespace BiografProjekt
         private double _ptcChild;
         private double _ptcSenior;
         private double _ptcFriends;
+        private double _ptcTotal;
 
         public TicketView()
         {
@@ -43,8 +44,8 @@ namespace BiografProjekt
             get { return _ptcAdult; }
             set
             {
-                _ptcAdult = DomainModel.Instance.Show.SliderAdult * DomainModel.Instance.Show.PriceAdult;
-                OnPropertyChanged(nameof(PriceTicketCombinedAdult));
+                _ptcAdult = value;
+                OnPropertyChanged();
             }
         }
         public double PriceTicketCombinedChild
@@ -52,8 +53,8 @@ namespace BiografProjekt
             get { return _ptcChild; }
             set
             {
-                _ptcChild = DomainModel.Instance.Show.SliderChild * DomainModel.Instance.Show.PriceChild;
-                OnPropertyChanged(nameof(PriceTicketCombinedChild));
+                _ptcChild = value;
+                OnPropertyChanged();
             }
         }
         public double PriceTicketCombinedSenior
@@ -61,8 +62,8 @@ namespace BiografProjekt
             get { return _ptcSenior; }
             set
             {
-                _ptcSenior = DomainModel.Instance.Show.SliderSenior * DomainModel.Instance.Show.PriceSenior;
-                OnPropertyChanged(nameof(PriceTicketCombinedSenior));
+                _ptcSenior = value;
+                OnPropertyChanged();
             }
         }
         public double PriceTicketCombinedFriends
@@ -70,12 +71,20 @@ namespace BiografProjekt
             get { return _ptcFriends; }
             set
             {
-                _ptcFriends = DomainModel.Instance.Show.SliderFriends * DomainModel.Instance.Show.PriceFriends;
-                OnPropertyChanged(nameof(PriceTicketCombinedFriends));
+                _ptcFriends = value;
+                OnPropertyChanged();
             }
         }
 
-        public double TotalPrice => PriceTicketCombinedFriends + PriceTicketCombinedAdult + PriceTicketCombinedChild + PriceTicketCombinedSenior;
+        public double TotalPrice
+        {
+            get { return _ptcTotal; }
+            set
+            {
+                _ptcTotal = value;
+                OnPropertyChanged();
+            }
+        }
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
@@ -83,8 +92,9 @@ namespace BiografProjekt
             DomainModel.Instance.Show.SliderChild = Convert.ToInt32(SliderChild.Value);
             DomainModel.Instance.Show.SliderFriends = Convert.ToInt32(SliderFriends.Value);
             DomainModel.Instance.Show.SliderSenior = Convert.ToInt32(SliderSenior.Value);
-
+            DomainModel.Instance.Show.SeatForShow = new SeatView();
             MainWindow.MainFrame.Content = DomainModel.Instance.Show.SeatForShow;
+            
         }
 
         private void Slider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -92,10 +102,12 @@ namespace BiografProjekt
             int ticketCounter = Convert.ToInt32(SliderAdult.Value + SliderChild.Value + SliderFriends.Value + SliderSenior.Value);
 
             Button.IsEnabled = ticketCounter != 0;
-            OnPropertyChanged(nameof(PriceTicketCombinedAdult));
-            OnPropertyChanged(nameof(PriceTicketCombinedChild));
-            OnPropertyChanged(nameof(PriceTicketCombinedFriends));
-            OnPropertyChanged(nameof(PriceTicketCombinedSenior));
+            PriceTicketCombinedAdult = SliderAdult.Value * PriceAdult;
+            PriceTicketCombinedChild = SliderChild.Value * PriceChild;
+            PriceTicketCombinedSenior = SliderSenior.Value * PriceSenior;
+            PriceTicketCombinedFriends = SliderFriends.Value * PriceFriends;
+            TotalPrice = PriceTicketCombinedAdult + PriceTicketCombinedChild + PriceTicketCombinedFriends +
+                         PriceTicketCombinedSenior;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

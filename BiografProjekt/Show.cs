@@ -15,6 +15,8 @@ namespace BiografProjekt
         private int _showKey;
         private SeatView _seatView;
         private TicketView _ticketView;
+        private ReceiptView _receiptView;
+        private PaymentView _paymentView;
         private int _ticket;
         private int _friends;
         private int _seniors;
@@ -31,7 +33,6 @@ namespace BiografProjekt
             _showDate = dateTime;
             _showTime = showTime;
             _showKey = showKey;
-            _seatView = new SeatView();
             _price = price;
 
         }
@@ -41,6 +42,18 @@ namespace BiografProjekt
         public Movie MovieForShow
         {
             get { return DomainModel.Instance.Movies.GetMovie(_movieKey); }
+        }
+
+        public PaymentView PaymentForShow
+        {
+            get { return _paymentView; }
+            set { _paymentView = value; }
+        }
+
+        public ReceiptView ReceiptForShow
+        {
+            get { return _receiptView; }
+            set { _receiptView = value; }
         }
 
         public Screen ScreenForShow
@@ -154,15 +167,15 @@ namespace BiografProjekt
         }
         public double PriceChild
         {
-            get { return _price*0.80; }
+            get { return _price*0.70; }
         }
         public double PriceSenior
         {
-            get { return _price*0.80; }
+            get { return _price*0.70; }
         }
         public double PriceFriends
         {
-            get { return _price*0.70; }
+            get { return _price*0.80; }
         }
         #endregion
 

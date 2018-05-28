@@ -9,19 +9,20 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,15,0,0" Text="{Binding GetTitle}" />
@@ -47,13 +48,13 @@
 
         <Grid Row="0" Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.15*"></RowDefinition>
+                <RowDefinition Height="0.25*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Billetter og pris:" />
             <ListView Grid.Row="1" ItemsSource="{Binding TicketCombined}" IsEnabled="False"/>
         </Grid>
 
-        <Button Grid.Column="2" Grid.Row="6" Click="BtnContinue_OnClick" Width="150" Height="50" Background="AliceBlue" Name="BtnContinue" Content="Gå til betaling" IsEnabled="True" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Bottom"></Button>
+        <Button Grid.Column="2" Grid.Row="7" Click="BtnContinue_OnClick" Width="150" Height="50" Background="AliceBlue" Name="BtnContinue" Content="Gå til betaling" IsEnabled="True" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Page>

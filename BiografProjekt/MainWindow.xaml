@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         x:Class="BiografProjekt.MainWindow"
         mc:Ignorable="d"
-        Title="BiografProjekt">
+        Title="BiografProjekt"
+    Tag="main">
 
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Height="35">
@@ -13,9 +14,6 @@
         <Button Content="Forside" MinWidth="100" Click="BtnP1_OnClick"></Button>
         
         <Button Content="Administrations Kontrolcenter" MinWidth="100" Click="BtnP2_OnClick"></Button>
-
-        <Button Content="Receipt" MinWidth="100" Click="BtnP3_OnClick"></Button>
-
         </StackPanel>
         
     

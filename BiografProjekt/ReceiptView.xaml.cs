@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-
 using PrintDialog = System.Windows.Controls.PrintDialog;
 
 
@@ -53,6 +52,11 @@ namespace BiografProjekt
                 string combinedString = string.Join(", ", DomainModel.Instance.Show.SeatForShow.GetSeatList);
                 return combinedString;
             }
+        }
+
+        public string BuyerName
+        {
+            get { return DomainModel.Instance.Show.PaymentForShow.Name.Text; }
         }
 
         public List<string> TicketList
